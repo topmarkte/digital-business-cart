@@ -13,96 +13,155 @@
     padding: 0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f8f5;
-    color: #1f2a19;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 25px 15px;
+:root {
+    --green: #417505;
+    --dark: #17200f;
+    --soft: #f6f7f3;
+    --gold: #b59b5b;
 }
+
+body {
+    min-height: 100vh;
+    padding: 22px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+
+    background:
+        radial-gradient(circle at 10% 10%, rgba(65,117,5,.08), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(181,155,91,.08), transparent 30%),
+        #f7f8f5;
+}
+
+/* ===== CARD ===== */
 
 .card {
+    position: relative;
     width: 100%;
-    max-width: 430px;
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 35px 25px;
+    max-width: 440px;
+
+    padding: 38px 27px 30px;
+
+    background: rgba(255,255,255,.96);
+
+    border: 1px solid rgba(65,117,5,.16);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.10),
+        0 5px 18px rgba(65,117,5,.06);
+
     text-align: center;
-    box-shadow: 0 15px 45px rgba(0,0,0,0.08);
-    border: 1px solid rgba(65,117,5,0.12);
 
-    animation: cardEnter 0.8s ease forwards;
+    overflow: hidden;
+
+    animation: cardIn .9s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes cardEnter {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--green),
+        var(--gold),
+        var(--green),
+        transparent
+    );
 }
+
+/* ===== LOGO ===== */
 
 .logo {
+    color: var(--green);
     font-size: 25px;
     font-weight: 800;
-    letter-spacing: 2px;
-    color: #417505;
-    margin-bottom: 28px;
+    letter-spacing: 4px;
+
+    margin-bottom: 30px;
+
+    animation: fadeDown .8s ease .1s both;
 }
 
+/* ===== INITIALS ===== */
+
 .avatar {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    margin: 0 auto 20px;
-    background: #417505;
-    color: white;
+    width: 105px;
+    height: 105px;
+
+    margin: 0 auto 21px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
-    font-weight: bold;
-    box-shadow: 0 8px 25px rgba(65,117,5,0.25);
 
-    animation: avatarEnter 1s ease forwards;
+    border-radius: 50%;
+
+    color: white;
+    background:
+        linear-gradient(145deg, #527f19, #315900);
+
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    border: 4px solid white;
+
+    box-shadow:
+        0 0 0 1px rgba(65,117,5,.22),
+        0 12px 35px rgba(65,117,5,.22);
+
+    animation: avatarIn 1s cubic-bezier(.2,.8,.2,1) .15s both;
 }
 
-@keyframes avatarEnter {
-    from {
-        opacity: 0;
-        transform: scale(0.7);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
+/* ===== NAME ===== */
 
 h1 {
-    font-size: 27px;
-    margin-bottom: 10px;
-    color: #1f2a19;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: .2px;
+
+    margin-bottom: 9px;
+
+    animation: fadeUp .7s ease .25s both;
 }
 
 .subtitle {
-    color: #417505;
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 25px;
+    color: var(--green);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: .2px;
+
+    margin-bottom: 21px;
+
+    animation: fadeUp .7s ease .35s both;
 }
 
+/* ===== DESCRIPTION ===== */
+
 .description {
-    color: #666;
+    max-width: 350px;
+    margin: 0 auto 27px;
+
+    color: #777;
+
     font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 25px;
+    line-height: 1.75;
+
+    animation: fadeUp .7s ease .45s both;
 }
+
+/* ===== BUTTONS ===== */
 
 .buttons {
     display: flex;
@@ -111,82 +170,205 @@ h1 {
 }
 
 .btn {
-    display: block;
-    text-decoration: none;
-    padding: 15px;
-    border-radius: 13px;
-    font-size: 15px;
-    font-weight: 600;
-    transition: all 0.3s ease;
+    position: relative;
 
-    border: 1px solid rgba(65,117,5,0.15);
-    background: #ffffff;
-    color: #417505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 51px;
+
+    padding: 14px 18px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--green);
+
+    background: #fff;
+
+    border: 1px solid rgba(65,117,5,.15);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.035);
+
+    overflow: hidden;
+
+    transition:
+        transform .28s ease,
+        box-shadow .28s ease,
+        background .28s ease;
 
     opacity: 0;
-    animation: buttonEnter 0.6s ease forwards;
+    animation: buttonIn .65s ease forwards;
 }
 
-.btn:nth-child(1) {
-    animation-delay: 0.2s;
+.btn:nth-child(1) { animation-delay: .50s; }
+.btn:nth-child(2) { animation-delay: .58s; }
+.btn:nth-child(3) { animation-delay: .66s; }
+.btn:nth-child(4) { animation-delay: .74s; }
+.btn:nth-child(5) { animation-delay: .82s; }
+.btn:nth-child(6) { animation-delay: .90s; }
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.55),
+        transparent
+    );
+
+    transition: left .55s ease;
 }
 
-.btn:nth-child(2) {
-    animation-delay: 0.3s;
+.btn:hover::before {
+    left: 100%;
 }
 
-.btn:nth-child(3) {
-    animation-delay: 0.4s;
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.08),
+        0 4px 12px rgba(65,117,5,.06);
 }
 
-.btn:nth-child(4) {
-    animation-delay: 0.5s;
+.btn:active {
+    transform: scale(.97);
 }
 
-.btn:nth-child(5) {
-    animation-delay: 0.6s;
+/* ===== MAIN WHATSAPP BUTTON ===== */
+
+.btn-main {
+    color: white;
+    background: linear-gradient(135deg, #417505, #315900);
+
+    border-color: #417505;
+
+    box-shadow:
+        0 10px 25px rgba(65,117,5,.20);
 }
 
-@keyframes buttonEnter {
+/* ===== CONTACT BUTTON ===== */
+
+.contact-btn {
+    background: #f8f9f6;
+}
+
+/* ===== SHARE BUTTON ===== */
+
+.share-btn {
+    color: #17200f;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f1f4ec
+        );
+
+    border-color: rgba(181,155,91,.28);
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+    margin-top: 28px;
+
+    color: #aaa;
+
+    font-size: 11px;
+    letter-spacing: .3px;
+
+    animation: fadeUp .7s ease 1s both;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes avatarIn {
+    from {
+        opacity: 0;
+        transform: scale(.65) rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes buttonIn {
     from {
         opacity: 0;
         transform: translateX(25px);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.09);
-}
-
-.btn:active {
-    transform: scale(0.97);
-}
-
-.btn-main {
-    background: #417505;
-    color: #ffffff;
-    border-color: #417505;
-}
-
-.contact-btn {
-    background: #f7f8f5;
-}
-
-.footer {
-    margin-top: 28px;
-    font-size: 12px;
-    color: #999;
-}
-
 @media (max-width: 380px) {
 
     .card {
-        padding: 30px 20px;
+        padding: 32px 20px 26px;
+        border-radius: 24px;
+    }
+
+    .avatar {
+        width: 92px;
+        height: 92px;
+        font-size: 30px;
     }
 
     h1 {
@@ -200,11 +382,17 @@ h1 {
 
 <div class="card">
 
-    <div class="logo">TOP MARKET</div>
+    <div class="logo">
+        TOP MARKET
+    </div>
 
-    <div class="avatar">MH</div>
+    <div class="avatar">
+        MH
+    </div>
 
-    <h1>Mohamed Sakhi</h1>
+    <h1>
+        Mohamed Sakhi
+    </h1>
 
     <div class="subtitle">
         Créateur de produits numériques
@@ -247,6 +435,12 @@ h1 {
             📇 Enregistrer le contact
         </a>
 
+        <a class="btn share-btn"
+           href="#"
+           onclick="shareCard(); return false;">
+            ↗ Partager ma carte
+        </a>
+
     </div>
 
     <div class="footer">
@@ -256,6 +450,8 @@ h1 {
 </div>
 
 <script>
+
+/* ===== SAVE CONTACT ===== */
 
 function downloadContact() {
 
@@ -290,6 +486,42 @@ END:VCARD`;
     document.body.removeChild(link);
 
     URL.revokeObjectURL(url);
+}
+
+
+/* ===== SHARE CARD ===== */
+
+async function shareCard() {
+
+    const shareData = {
+        title: "Mohamed Sakhi",
+        text: "Découvrez ma carte de visite digitale.",
+        url: window.location.href
+    };
+
+    try {
+
+        if (navigator.share) {
+
+            await navigator.share(shareData);
+
+        } else {
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            alert("Lien de la carte copié !");
+        }
+
+    } catch (error) {
+
+        if (error.name !== "AbortError") {
+
+            alert("Impossible de partager la carte.");
+
+        }
+    }
 }
 
 </script>
