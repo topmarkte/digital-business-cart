@@ -33,6 +33,19 @@ body {
     text-align: center;
     box-shadow: 0 15px 45px rgba(0,0,0,0.08);
     border: 1px solid rgba(65,117,5,0.12);
+
+    animation: cardEnter 0.8s ease forwards;
+}
+
+@keyframes cardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .logo {
@@ -56,6 +69,19 @@ body {
     font-size: 32px;
     font-weight: bold;
     box-shadow: 0 8px 25px rgba(65,117,5,0.25);
+
+    animation: avatarEnter 1s ease forwards;
+}
+
+@keyframes avatarEnter {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 h1 {
@@ -91,21 +117,64 @@ h1 {
     border-radius: 13px;
     font-size: 15px;
     font-weight: 600;
-    transition: 0.25s ease;
+    transition: all 0.3s ease;
+
     border: 1px solid rgba(65,117,5,0.15);
     background: #ffffff;
     color: #417505;
+
+    opacity: 0;
+    animation: buttonEnter 0.6s ease forwards;
+}
+
+.btn:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.btn:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.btn:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.btn:nth-child(4) {
+    animation-delay: 0.5s;
+}
+
+.btn:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+@keyframes buttonEnter {
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.09);
+}
+
+.btn:active {
+    transform: scale(0.97);
 }
 
 .btn-main {
     background: #417505;
     color: #ffffff;
     border-color: #417505;
+}
+
+.contact-btn {
+    background: #f7f8f5;
 }
 
 .footer {
@@ -115,6 +184,7 @@ h1 {
 }
 
 @media (max-width: 380px) {
+
     .card {
         padding: 30px 20px;
     }
@@ -132,7 +202,7 @@ h1 {
 
     <div class="logo">TOP MARKET</div>
 
-    <div class="avatar">MS</div>
+    <div class="avatar">MH</div>
 
     <h1>Mohamed Sakhi</h1>
 
@@ -171,6 +241,12 @@ h1 {
             🌐 Visiter Top Market
         </a>
 
+        <a class="btn contact-btn"
+           href="#"
+           onclick="downloadContact(); return false;">
+            📇 Enregistrer le contact
+        </a>
+
     </div>
 
     <div class="footer">
@@ -179,5 +255,44 @@ h1 {
 
 </div>
 
+<script>
+
+function downloadContact() {
+
+    const vCard =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Mohamed Sakhi
+N:Sakhi;Mohamed;;;
+TITLE:Créateur de produits numériques
+TEL;TYPE=CELL:+212728018946
+URL;TYPE=Instagram:https://www.instagram.com/topmarket741?stkn=OWs3eWdiY3ppbGJu
+URL;TYPE=Facebook:https://www.facebook.com/share/1CMhfdQ5oV/
+URL;TYPE=Website:https://www.topmarket.pro/
+END:VCARD`;
+
+    const blob = new Blob(
+        [vCard],
+        { type: "text/vcard;charset=utf-8" }
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = "Mohamed-Sakhi.vcf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
+
+    URL.revokeObjectURL(url);
+}
+
+</script>
+
 </body>
-  </html>
+</html>
