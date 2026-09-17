@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mohamed Sakhi | Créateur de produits numériques</title>
+<title>Mohamed Sakhi | Carte de visite digitale</title>
 
 <style>
 * {
@@ -15,46 +15,50 @@
 
 :root {
     --green: #417505;
+    --green-dark: #315900;
     --dark: #17200f;
-    --soft: #f6f7f3;
+    --gray: #777;
+    --light: #f6f7f3;
     --gold: #b59b5b;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     min-height: 100vh;
-    padding: 22px 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+    padding: 22px 14px 45px;
     font-family: Arial, Helvetica, sans-serif;
     color: var(--dark);
 
     background:
         radial-gradient(circle at 10% 10%, rgba(65,117,5,.08), transparent 30%),
-        radial-gradient(circle at 90% 90%, rgba(181,155,91,.08), transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(181,155,91,.09), transparent 30%),
         #f7f8f5;
 }
 
-/* ===== CARD ===== */
+/* =========================
+   MAIN CARD
+========================= */
 
 .card {
     position: relative;
     width: 100%;
-    max-width: 440px;
+    max-width: 470px;
+    margin: auto;
 
-    padding: 38px 27px 30px;
+    padding: 34px 25px 30px;
 
-    background: rgba(255,255,255,.96);
+    background: rgba(255,255,255,.97);
 
     border: 1px solid rgba(65,117,5,.16);
-    border-radius: 28px;
+    border-radius: 30px;
 
     box-shadow:
         0 25px 70px rgba(0,0,0,.10),
         0 5px 18px rgba(65,117,5,.06);
-
-    text-align: center;
 
     overflow: hidden;
 
@@ -68,6 +72,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
+
     background: linear-gradient(
         90deg,
         transparent,
@@ -78,26 +83,63 @@ body {
     );
 }
 
-/* ===== LOGO ===== */
+/* =========================
+   LANGUAGE
+========================= */
+
+.language-switcher {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 22px;
+}
+
+.lang-btn {
+    border: 1px solid rgba(65,117,5,.15);
+    background: #fff;
+    color: #777;
+
+    padding: 6px 11px;
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+/* =========================
+   LOGO
+========================= */
 
 .logo {
     color: var(--green);
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 800;
     letter-spacing: 4px;
-
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 28px;
 
     animation: fadeDown .8s ease .1s both;
 }
 
-/* ===== INITIALS ===== */
+/* =========================
+   AVATAR
+========================= */
 
 .avatar {
     width: 105px;
     height: 105px;
 
-    margin: 0 auto 21px;
+    margin: 0 auto 20px;
 
     display: flex;
     align-items: center;
@@ -106,6 +148,7 @@ body {
     border-radius: 50%;
 
     color: white;
+
     background:
         linear-gradient(145deg, #527f19, #315900);
 
@@ -122,51 +165,43 @@ body {
     animation: avatarIn 1s cubic-bezier(.2,.8,.2,1) .15s both;
 }
 
-/* ===== NAME ===== */
+/* =========================
+   INTRO
+========================= */
 
 h1 {
     font-size: 28px;
     font-weight: 700;
-    letter-spacing: .2px;
-
+    text-align: center;
     margin-bottom: 9px;
-
-    animation: fadeUp .7s ease .25s both;
 }
 
 .subtitle {
     color: var(--green);
-
     font-size: 15px;
     font-weight: 700;
-
-    letter-spacing: .2px;
-
-    margin-bottom: 21px;
-
-    animation: fadeUp .7s ease .35s both;
+    text-align: center;
+    margin-bottom: 18px;
 }
-
-/* ===== DESCRIPTION ===== */
 
 .description {
-    max-width: 350px;
-    margin: 0 auto 27px;
+    max-width: 365px;
+    margin: 0 auto 26px;
 
     color: #777;
-
     font-size: 14px;
     line-height: 1.75;
-
-    animation: fadeUp .7s ease .45s both;
+    text-align: center;
 }
 
-/* ===== BUTTONS ===== */
+/* =========================
+   SOCIAL / CONTACT BUTTONS
+========================= */
 
 .buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 11px;
 }
 
 .btn {
@@ -175,10 +210,10 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 
     min-height: 51px;
-
-    padding: 14px 18px;
+    padding: 13px 18px;
 
     border-radius: 15px;
 
@@ -188,7 +223,6 @@ h1 {
     font-weight: 700;
 
     color: var(--green);
-
     background: #fff;
 
     border: 1px solid rgba(65,117,5,.15);
@@ -201,41 +235,6 @@ h1 {
         transform .28s ease,
         box-shadow .28s ease,
         background .28s ease;
-
-    opacity: 0;
-    animation: buttonIn .65s ease forwards;
-}
-
-.btn:nth-child(1) { animation-delay: .50s; }
-.btn:nth-child(2) { animation-delay: .58s; }
-.btn:nth-child(3) { animation-delay: .66s; }
-.btn:nth-child(4) { animation-delay: .74s; }
-.btn:nth-child(5) { animation-delay: .82s; }
-.btn:nth-child(6) { animation-delay: .90s; }
-
-.btn::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.55),
-        transparent
-    );
-
-    transition: left .55s ease;
-}
-
-.btn:hover::before {
-    left: 100%;
 }
 
 .btn:hover {
@@ -250,25 +249,36 @@ h1 {
     transform: scale(.97);
 }
 
-/* ===== MAIN WHATSAPP BUTTON ===== */
+.btn svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+}
+
+/* WhatsApp */
 
 .btn-main {
     color: white;
     background: linear-gradient(135deg, #417505, #315900);
-
     border-color: #417505;
 
     box-shadow:
         0 10px 25px rgba(65,117,5,.20);
 }
 
-/* ===== CONTACT BUTTON ===== */
+/* Email */
+
+.email-btn {
+    background: #fafbf8;
+}
+
+/* Contact */
 
 .contact-btn {
     background: #f8f9f6;
 }
 
-/* ===== SHARE BUTTON ===== */
+/* Share */
 
 .share-btn {
     color: #17200f;
@@ -280,23 +290,269 @@ h1 {
             #f1f4ec
         );
 
-    border-color: rgba(181,155,91,.28);
+    border-color: rgba(181,155,91,.30);
 }
 
-/* ===== FOOTER ===== */
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    margin-top: 30px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(65,117,5,.10);
+}
+
+.section-title {
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    margin-bottom: 17px;
+}
+
+.section-title span {
+    color: var(--green);
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box {
+    background: var(--light);
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(65,117,5,.08);
+
+    color: #666;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 11px;
+}
+
+.service {
+    padding: 17px 10px;
+
+    background: #fff;
+
+    border: 1px solid rgba(65,117,5,.12);
+    border-radius: 16px;
+
+    text-align: center;
+
+    transition: .25s ease;
+}
+
+.service:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+.service-icon {
+    width: 38px;
+    height: 38px;
+
+    margin: 0 auto 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    color: var(--green);
+    background: rgba(65,117,5,.08);
+}
+
+.service-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.service h3 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.service p {
+    color: #888;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.project {
+    padding: 17px;
+
+    margin-bottom: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f5f7f1
+        );
+
+    border: 1px solid rgba(65,117,5,.12);
+    border-radius: 17px;
+
+    text-align: left;
+
+    transition: .25s ease;
+}
+
+.project:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(0,0,0,.06);
+}
+
+.project-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.project-icon {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background:
+        linear-gradient(145deg, #527f19, #315900);
+
+    border-radius: 13px;
+}
+
+.project-icon svg {
+    width: 21px;
+    height: 21px;
+}
+
+.project h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.project p {
+    color: #888;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.stat {
+    text-align: center;
+    padding: 15px 5px;
+
+    background: #fafbf8;
+
+    border-radius: 15px;
+    border: 1px solid rgba(65,117,5,.08);
+}
+
+.stat strong {
+    display: block;
+
+    color: var(--green);
+
+    font-size: 21px;
+    margin-bottom: 4px;
+}
+
+.stat span {
+    color: #888;
+    font-size: 10px;
+}
+
+/* =========================
+   QR CODE
+========================= */
+
+.qr-box {
+    text-align: center;
+}
+
+.qr-box img {
+    width: 150px;
+    height: 150px;
+
+    padding: 8px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(65,117,5,.15);
+
+    box-shadow: 0 10px 25px rgba(0,0,0,.07);
+}
+
+.qr-text {
+    margin-top: 11px;
+
+    color: #888;
+
+    font-size: 11px;
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
-    margin-top: 28px;
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(65,117,5,.09);
 
     color: #aaa;
 
     font-size: 11px;
-    letter-spacing: .3px;
 
-    animation: fadeUp .7s ease 1s both;
+    text-align: center;
 }
 
-/* ===== ANIMATIONS ===== */
+/* =========================
+   ANIMATIONS
+========================= */
 
 @keyframes cardIn {
     from {
@@ -334,34 +590,18 @@ h1 {
     }
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes buttonIn {
-    from {
-        opacity: 0;
-        transform: translateX(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 380px) {
 
+    body {
+        padding: 12px 9px 30px;
+    }
+
     .card {
-        padding: 32px 20px 26px;
+        padding: 28px 18px 25px;
         border-radius: 24px;
     }
 
@@ -374,6 +614,10 @@ h1 {
     h1 {
         font-size: 24px;
     }
+
+    .services {
+        gap: 8px;
+    }
 }
 </style>
 </head>
@@ -382,76 +626,577 @@ h1 {
 
 <div class="card">
 
+    <!-- LANGUAGE -->
+
+    <div class="language-switcher">
+
+        <button class="lang-btn active"
+                onclick="changeLanguage('fr', this)">
+            FR
+        </button>
+
+        <button class="lang-btn"
+                onclick="changeLanguage('ar', this)">
+            العربية
+        </button>
+
+        <button class="lang-btn"
+                onclick="changeLanguage('en', this)">
+            EN
+        </button>
+
+    </div>
+
+
+    <!-- LOGO -->
+
     <div class="logo">
         TOP MARKET
     </div>
+
+
+    <!-- INITIALS -->
 
     <div class="avatar">
         MH
     </div>
 
+
+    <!-- INTRO -->
+
     <h1>
         Mohamed Sakhi
     </h1>
 
-    <div class="subtitle">
+    <div class="subtitle"
+         data-fr="Créateur de produits numériques"
+         data-ar="منشئ المنتجات الرقمية"
+         data-en="Digital Product Creator">
         Créateur de produits numériques
     </div>
 
-    <div class="description">
+    <div class="description"
+         data-fr="Création de solutions numériques modernes et professionnelles. Découvrez mes projets et contactez-moi directement."
+         data-ar="إنشاء حلول رقمية حديثة واحترافية. اكتشف مشاريعي وتواصل معي مباشرة."
+         data-en="Creation of modern and professional digital solutions. Discover my projects and contact me directly.">
         Création de solutions numériques modernes et professionnelles.
         Découvrez mes projets et contactez-moi directement.
     </div>
 
+
+    <!-- CONTACT BUTTONS -->
+
     <div class="buttons">
+
+        <!-- WhatsApp -->
 
         <a class="btn btn-main"
            href="https://wa.me/212728018946"
            target="_blank">
-            💬 WhatsApp
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5.2A8.4 8.4 0 1 1 21 11.5Z"/>
+                <path d="M8.5 9.2c.3 1.7 2.2 3.8 4.1 4.4l1.4-.9"/>
+            </svg>
+
+            <span data-fr="WhatsApp"
+                  data-ar="واتساب"
+                  data-en="WhatsApp">
+                WhatsApp
+            </span>
+
         </a>
+
+
+        <!-- Instagram -->
 
         <a class="btn"
            href="https://www.instagram.com/topmarket741?stkn=OWs3eWdiY3ppbGJu"
            target="_blank">
-            Instagram
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r=".8"
+                        fill="currentColor"/>
+            </svg>
+
+            <span data-fr="Instagram"
+                  data-ar="Instagram"
+                  data-en="Instagram">
+                Instagram
+            </span>
+
         </a>
+
+
+        <!-- Facebook -->
 
         <a class="btn"
            href="https://www.facebook.com/share/1CMhfdQ5oV/"
            target="_blank">
-            Facebook
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1Z"/>
+            </svg>
+
+            <span data-fr="Facebook"
+                  data-ar="فيسبوك"
+                  data-en="Facebook">
+                Facebook
+            </span>
+
         </a>
+
+
+        <!-- Website -->
 
         <a class="btn"
            href="https://www.topmarket.pro/"
            target="_blank">
-            🌐 Visiter Top Market
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M3 12h18"/>
+                <path d="M12 3c3 3 3 15 0 18"/>
+                <path d="M12 3c-3 3-3 15 0 18"/>
+            </svg>
+
+            <span data-fr="Visiter Top Market"
+                  data-ar="زيارة Top Market"
+                  data-en="Visit Top Market">
+                Visiter Top Market
+            </span>
+
         </a>
+
+
+        <!-- Email -->
+
+        <a class="btn email-btn"
+           href="mailto:sakhimed959@gmail.com">
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="m3 7 9 6 9-6"/>
+            </svg>
+
+            <span data-fr="E-mail"
+                  data-ar="البريد الإلكتروني"
+                  data-en="Email">
+                E-mail
+            </span>
+
+        </a>
+
+
+        <!-- Call -->
+
+        <a class="btn"
+           href="tel:+212728018946">
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <path d="M5 4h4l2 5-2.5 1.5a15 15 0 0 0 5 5L15 13l5 2v4c0 1-1 2-2 2C10 21 3 14 3 6c0-1.1.9-2 2-2Z"/>
+            </svg>
+
+            <span data-fr="Appeler"
+                  data-ar="اتصل بي"
+                  data-en="Call me">
+                Appeler
+            </span>
+
+        </a>
+
+
+        <!-- Save Contact -->
 
         <a class="btn contact-btn"
            href="#"
            onclick="downloadContact(); return false;">
-            📇 Enregistrer le contact
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+                <path d="M4 21a8 8 0 0 1 16 0"/>
+                <path d="M19 8v5"/>
+                <path d="M16.5 10.5h5"/>
+            </svg>
+
+            <span data-fr="Enregistrer le contact"
+                  data-ar="حفظ جهة الاتصال"
+                  data-en="Save contact">
+                Enregistrer le contact
+            </span>
+
         </a>
+
+
+        <!-- Share -->
 
         <a class="btn share-btn"
            href="#"
            onclick="shareCard(); return false;">
-            ↗ Partager ma carte
+
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+                <circle cx="18" cy="5" r="2.5"/>
+                <circle cx="6" cy="12" r="2.5"/>
+                <circle cx="18" cy="19" r="2.5"/>
+                <path d="m8.2 10.8 7.6-4.4"/>
+                <path d="m8.2 13.2 7.6 4.4"/>
+            </svg>
+
+            <span data-fr="Partager ma carte"
+                  data-ar="مشاركة بطاقتي"
+                  data-en="Share my card">
+                Partager ma carte
+            </span>
+
         </a>
 
     </div>
 
+
+    <!-- ABOUT -->
+
+    <section class="section">
+
+        <div class="section-title">
+            <span data-fr="À propos"
+                  data-ar="نبذة عني"
+                  data-en="About me">
+                À propos
+            </span>
+        </div>
+
+        <div class="about-box"
+             data-fr="Je crée des expériences numériques modernes, des sites web et des solutions digitales pensées pour donner une image professionnelle aux projets et aux entreprises."
+             data-ar="أعمل على إنشاء تجارب رقمية حديثة ومواقع وحلول رقمية تساعد المشاريع والشركات على الظهور بصورة احترافية."
+             data-en="I create modern digital experiences, websites and digital solutions designed to give projects and businesses a professional image.">
+            Je crée des expériences numériques modernes, des sites web et des solutions digitales pensées pour donner une image professionnelle aux projets et aux entreprises.
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="section">
+
+        <div class="section-title">
+            <span data-fr="Mes services"
+                  data-ar="خدماتي"
+                  data-en="My services">
+                Mes services
+            </span>
+        </div>
+
+
+        <div class="services">
+
+            <div class="service">
+
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="15" rx="2"/>
+                        <path d="M8 21h8"/>
+                        <path d="M12 19v2"/>
+                    </svg>
+                </div>
+
+                <h3 data-fr="Sites web"
+                    data-ar="مواقع الويب"
+                    data-en="Websites">
+                    Sites web
+                </h3>
+
+                <p data-fr="Sites modernes et professionnels"
+                   data-ar="مواقع حديثة واحترافية"
+                   data-en="Modern and professional websites">
+                    Sites modernes et professionnels
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <path d="M4 5h16v14H4z"/>
+                        <path d="M8 9h8"/>
+                        <path d="M8 13h5"/>
+                    </svg>
+                </div>
+
+                <h3 data-fr="E-commerce"
+                    data-ar="المتاجر الإلكترونية"
+                    data-en="E-commerce">
+                    E-commerce
+                </h3>
+
+                <p data-fr="Création de boutiques en ligne"
+                   data-ar="إنشاء متاجر إلكترونية"
+                   data-en="Online store creation">
+                    Création de boutiques en ligne
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <path d="M4 5h16v14H4z"/>
+                        <path d="m8 15 2-2 2 2 3-4 2 3"/>
+                    </svg>
+                </div>
+
+                <h3 data-fr="Design digital"
+                    data-ar="التصميم الرقمي"
+                    data-en="Digital design">
+                    Design digital
+                </h3>
+
+                <p data-fr="Interfaces et expériences digitales"
+                   data-ar="واجهات وتجارب رقمية"
+                   data-en="Digital interfaces and experiences">
+                    Interfaces et expériences digitales
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="8"/>
+                        <path d="M12 8v8"/>
+                        <path d="M8 12h8"/>
+                    </svg>
+                </div>
+
+                <h3 data-fr="Produits numériques"
+                    data-ar="المنتجات الرقمية"
+                    data-en="Digital products">
+                    Produits numériques
+                </h3>
+
+                <p data-fr="Création de projets digitaux"
+                   data-ar="إنشاء مشاريع رقمية"
+                   data-en="Digital project creation">
+                    Création de projets digitaux
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section class="section">
+
+        <div class="section-title">
+            <span data-fr="Mes projets"
+                  data-ar="مشاريعي"
+                  data-en="My projects">
+                Mes projets
+            </span>
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-top">
+
+                <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <path d="M4 5h16v14H4z"/>
+                        <path d="M8 9h8"/>
+                        <path d="M8 13h5"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3>Top Market</h3>
+
+                    <p data-fr="Projet e-commerce et solution digitale."
+                       data-ar="مشروع للتجارة الإلكترونية وحلول رقمية."
+                       data-en="E-commerce project and digital solution.">
+                        Projet e-commerce et solution digitale.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-top">
+
+                <div class="project-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="3" width="16" height="18" rx="2"/>
+                        <path d="M8 7h8"/>
+                        <path d="M8 11h8"/>
+                        <path d="M8 15h5"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h3 data-fr="Carte de visite digitale"
+                        data-ar="بطاقة زيارة رقمية"
+                        data-en="Digital business card">
+                        Carte de visite digitale
+                    </h3>
+
+                    <p data-fr="Une identité digitale simple et professionnelle."
+                       data-ar="هوية رقمية بسيطة واحترافية."
+                       data-en="A simple and professional digital identity.">
+                        Une identité digitale simple et professionnelle.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="section">
+
+        <div class="stats">
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span data-fr="Digital"
+                      data-ar="رقمي"
+                      data-en="Digital">
+                    Digital
+                </span>
+            </div>
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span data-fr="Disponible"
+                      data-ar="متاح"
+                      data-en="Available">
+                    Disponible
+                </span>
+            </div>
+
+            <div class="stat">
+                <strong>3</strong>
+                <span data-fr="Langues"
+                      data-ar="لغات"
+                      data-en="Languages">
+                    Langues
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QR CODE -->
+
+    <section class="section">
+
+        <div class="section-title">
+            <span data-fr="Ma carte"
+                  data-ar="بطاقتي"
+                  data-en="My card">
+                Ma carte
+            </span>
+        </div>
+
+        <div class="qr-box">
+
+            <img id="qrCode"
+                 alt="QR Code">
+
+            <div class="qr-text"
+                 data-fr="Scannez pour ouvrir ma carte digitale"
+                 data-ar="امسح الرمز لفتح بطاقتي الرقمية"
+                 data-en="Scan to open my digital card">
+                Scannez pour ouvrir ma carte digitale
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
     <div class="footer">
-        © 2026 Mohamed Sakhi
+        © 2026 Mohamed Sakhi · TOP MARKET
     </div>
 
 </div>
 
+
 <script>
 
-/* ===== SAVE CONTACT ===== */
+/* =========================
+   LANGUAGE SYSTEM
+========================= */
+
+function changeLanguage(lang, button) {
+
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll(".lang-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    button.classList.add("active");
+
+    document.querySelectorAll("[data-" + lang + "]")
+        .forEach(element => {
+
+            element.textContent =
+                element.getAttribute("data-" + lang);
+
+        });
+
+    if (lang === "ar") {
+
+        document.body.style.direction = "rtl";
+
+    } else {
+
+        document.body.style.direction = "ltr";
+
+    }
+}
+
+
+/* =========================
+   SAVE CONTACT
+========================= */
 
 function downloadContact() {
 
@@ -462,6 +1207,7 @@ FN:Mohamed Sakhi
 N:Sakhi;Mohamed;;;
 TITLE:Créateur de produits numériques
 TEL;TYPE=CELL:+212728018946
+EMAIL:sakhimed959@gmail.com
 URL;TYPE=Instagram:https://www.instagram.com/topmarket741?stkn=OWs3eWdiY3ppbGJu
 URL;TYPE=Facebook:https://www.facebook.com/share/1CMhfdQ5oV/
 URL;TYPE=Website:https://www.topmarket.pro/
@@ -477,6 +1223,7 @@ END:VCARD`;
     const link = document.createElement("a");
 
     link.href = url;
+
     link.download = "Mohamed-Sakhi.vcf";
 
     document.body.appendChild(link);
@@ -489,7 +1236,9 @@ END:VCARD`;
 }
 
 
-/* ===== SHARE CARD ===== */
+/* =========================
+   SHARE CARD
+========================= */
 
 async function shareCard() {
 
@@ -512,6 +1261,7 @@ async function shareCard() {
             );
 
             alert("Lien de la carte copié !");
+
         }
 
     } catch (error) {
@@ -521,8 +1271,28 @@ async function shareCard() {
             alert("Impossible de partager la carte.");
 
         }
+
     }
 }
+
+
+/* =========================
+   QR CODE
+========================= */
+
+function createQRCode() {
+
+    const currentURL = window.location.href;
+
+    const qr =
+        "https://api.qrserver.com/v1/create-qr-code/" +
+        "?size=300x300&data=" +
+        encodeURIComponent(currentURL);
+
+    document.getElementById("qrCode").src = qr;
+}
+
+createQRCode();
 
 </script>
 
