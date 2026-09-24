@@ -2272,7 +2272,109 @@ if (installButton) {
 
 
 /* =========================
-   INSTALLED CHECK
+   INSTALL APP
+========================= */
+
+let deferredInstallPrompt = null;
+
+const installCard = document.getElementById("installCard");
+const installButton = document.getElementById("installButton");
+
+
+/* هل البطاقة مثبتة بالفعل؟ */
+
+function isAppInstalled() {
+
+    return (
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true
+    );
+
+}
+
+
+/* إذا كانت مثبتة، نخفي الزر */
+
+if (isAppInstalled()) {
+
+    if (installCard) {
+        installCard.style.display = "none";
+    }
+
+}
+
+
+/* =========================
+   INSTALL PROMPT
+========================= */
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event) {
+
+        event.preventDefault();
+
+        deferredInstallPrompt = event;
+
+        if (installCard) {
+            installCard.style.display = "block";
+        }
+
+    }
+);
+
+
+/* =========================
+   INSTALL BUTTON
+========================= */
+
+if (installButton) {
+
+    installButton.addEventListener(
+        "click",
+        async function() {
+
+            /* إذا كان المتصفح يدعم التثبيت المباشر */
+
+            if (deferredInstallPrompt) {
+
+                deferredInstallPrompt.prompt();
+
+                const result =
+                    await deferredInstallPrompt.userChoice;
+
+                if (result.outcome === "accepted") {
+
+                    console.log(
+                        "Carte installée avec succès."
+                    );
+
+                }
+
+                deferredInstallPrompt = null;
+
+                if (installCard) {
+                    installCard.style.display = "none";
+                }
+
+                return;
+            }
+
+
+            /* إذا لم يكن هناك أمر تثبيت مباشر */
+
+            alert(
+                "لإضافة البطاقة إلى الشاشة الرئيسية، افتح قائمة المتصفح ثم اختر «إضافة إلى الشاشة الرئيسية» أو «تثبيت التطبيق»."
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   AFTER INSTALL
 ========================= */
 
 window.addEventListener(
@@ -2287,7 +2389,6 @@ window.addEventListener(
 
     }
 );
-</script>
 </body>
 
 </html>
