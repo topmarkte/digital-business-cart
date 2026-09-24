@@ -1,0 +1,12 @@
+{
+  "name": "Mohamed Sakhi | Carte de visite digitale",
+  "short_name": "Mohamed Sakhi",
+  "description": "Carte de visite digitale professionnelle de Mohamed Sakhi.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f8f5",
+  "theme_color": "#417505",
+  "orientation": "portrait",
+  "lang": "fr",
+  "dir": "ltr"
+}
