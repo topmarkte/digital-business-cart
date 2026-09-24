@@ -2213,7 +2213,81 @@ if ("serviceWorker" in navigator) {
     });
 }
 </script>
+<script>
+let deferredInstallPrompt = null;
 
+const installCard = document.getElementById("installCard");
+const installButton = document.getElementById("installButton");
+
+
+/* =========================
+   INSTALL PROMPT
+========================= */
+
+window.addEventListener("beforeinstallprompt", function(event) {
+
+    event.preventDefault();
+
+    deferredInstallPrompt = event;
+
+    if (installCard) {
+        installCard.style.display = "block";
+    }
+
+});
+
+
+/* =========================
+   INSTALL BUTTON
+========================= */
+
+if (installButton) {
+
+    installButton.addEventListener("click", async function() {
+
+        if (!deferredInstallPrompt) {
+            return;
+        }
+
+        deferredInstallPrompt.prompt();
+
+        const result =
+            await deferredInstallPrompt.userChoice;
+
+        if (result.outcome === "accepted") {
+
+            console.log(
+                "Mohamed Sakhi card installed."
+            );
+
+        }
+
+        deferredInstallPrompt = null;
+
+        installCard.style.display = "none";
+
+    });
+
+}
+
+
+/* =========================
+   INSTALLED CHECK
+========================= */
+
+window.addEventListener(
+    "appinstalled",
+    function() {
+
+        deferredInstallPrompt = null;
+
+        if (installCard) {
+            installCard.style.display = "none";
+        }
+
+    }
+);
+</script>
 </body>
 
 </html>
