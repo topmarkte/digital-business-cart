@@ -13,937 +13,583 @@
 
 <title>Mohamed Sakhi | Carte de visite digitale</title>
 
-
 <style>
 
-/* =====================================================
-   MOHAMED SAKHI — LUXURY DIGITAL BUSINESS CARD
-   Main Color: #417505
-===================================================== */
-
-:root {
-
-    --green: #417505;
-    --green-dark: #203b08;
-    --green-deep: #142604;
-
-    --gold: #c8a85b;
-    --gold-light: #e7cf8b;
-
-    --black: #10130d;
-    --white: #ffffff;
-
-    --cream: #f8f7f2;
-    --gray: #777b72;
-    --border: rgba(65,117,5,0.16);
-
-    --shadow:
-        0 18px 50px rgba(20,38,4,0.10);
-
-    --radius: 24px;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
 * {
-
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-
-    box-sizing: border-box;
-
 }
 
+:root {
+    --green: #417505;
+    --green-dark: #315900;
+    --dark: #17200f;
+    --gray: #777;
+    --light: #f6f7f3;
+    --gold: #b59b5b;
+    --white: #ffffff;
+}
 
 html {
-
     scroll-behavior: smooth;
-
 }
 
-
 body {
-
     min-height: 100vh;
+    padding: 22px 14px 45px;
 
     font-family:
-        "Segoe UI",
         Arial,
+        Helvetica,
         sans-serif;
 
+    color: var(--dark);
+
     background:
-
         radial-gradient(
-            circle at 10% 0%,
-            rgba(200,168,91,0.13),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 90% 15%,
-            rgba(65,117,5,0.08),
+            circle at 10% 10%,
+            rgba(65,117,5,.08),
             transparent 30%
         ),
 
-        var(--cream);
+        radial-gradient(
+            circle at 90% 90%,
+            rgba(181,155,91,.09),
+            transparent 30%
+        ),
 
-    color: var(--black);
-
-    direction: ltr;
-
-    overflow-x: hidden;
-
-    -webkit-font-smoothing: antialiased;
-
+        #f7f8f5;
 }
 
 
-/* =====================================================
-   MAIN CONTAINER
-===================================================== */
+/* =========================
+   MAIN CARD
+========================= */
 
-.container {
-
-    width: min(
-        100%,
-        760px
-    );
-
-    margin: 0 auto;
-
-    padding:
-        20px
-        16px
-        45px;
-
-}
-
-
-/* =====================================================
-   LANGUAGE BAR
-===================================================== */
-
-.language-bar {
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 7px;
-
-    margin-bottom: 18px;
-
-}
-
-
-.lang-btn {
-
-    border: 1px solid
-        rgba(65,117,5,0.18);
-
-    background:
-        rgba(255,255,255,0.75);
-
-    color: var(--green-dark);
-
-    padding:
-        7px 13px;
-
-    border-radius: 50px;
-
-    font-size: 12px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        all .3s ease;
-
-    backdrop-filter:
-        blur(10px);
-
-}
-
-
-.lang-btn:hover {
-
-    transform:
-        translateY(-2px);
-
-    border-color:
-        var(--gold);
-
-}
-
-
-.lang-btn.active {
-
-    background:
-        var(--green);
-
-    color:
-        white;
-
-    border-color:
-        var(--green);
-
-    box-shadow:
-        0 6px 18px
-        rgba(65,117,5,0.20);
-
-}
-
-
-/* =====================================================
-   HERO
-===================================================== */
-
-.hero {
+.card {
 
     position: relative;
 
-    overflow: hidden;
+    width: 100%;
+    max-width: 470px;
+
+    margin: auto;
+
+    padding: 34px 25px 30px;
 
     background:
-
-        linear-gradient(
-            145deg,
-            #172b08 0%,
-            #294b0c 45%,
-            #417505 100%
-        );
-
-    border-radius:
-        30px;
-
-    padding:
-        45px
-        25px
-        38px;
-
-    text-align: center;
-
-    color: white;
-
-    box-shadow:
-        0 25px 70px
-        rgba(20,38,4,0.20);
+        rgba(255,255,255,.97);
 
     border:
         1px solid
-        rgba(231,207,139,0.28);
+        rgba(65,117,5,.16);
 
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.10),
+        0 5px 18px rgba(65,117,5,.06);
+
+    overflow: hidden;
+
+    animation:
+        cardIn .9s
+        cubic-bezier(.2,.8,.2,1);
 }
 
-
-/* luxury light */
-
-.hero::before {
+.card::before {
 
     content: "";
 
     position: absolute;
 
-    width: 280px;
-    height: 280px;
+    top: 0;
+    left: 0;
+    right: 0;
 
-    border-radius: 50%;
-
-    top: -150px;
-    right: -100px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(231,207,139,0.22),
-            transparent 70%
-        );
-
-}
-
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 220px;
-    height: 220px;
-
-    border-radius: 50%;
-
-    bottom: -150px;
-    left: -90px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,0.10),
-            transparent 70%
-        );
-
-}
-
-
-/* =====================================================
-   LUXURY LINE
-===================================================== */
-
-.luxury-line {
-
-    width: 55px;
-
-    height: 2px;
-
-    margin:
-        0 auto
-        20px;
+    height: 3px;
 
     background:
         linear-gradient(
             90deg,
             transparent,
-            var(--gold-light),
+            var(--green),
+            var(--gold),
+            var(--green),
             transparent
         );
-
 }
 
 
-/* =====================================================
-   INITIALS
-===================================================== */
+/* =========================
+   LANGUAGE
+========================= */
 
-.profile-logo {
+.language-switcher {
 
-    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-bottom: 22px;
+}
+
+.lang-btn {
+
+    border:
+        1px solid
+        rgba(65,117,5,.15);
+
+    background: #fff;
+    color: #777;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .25s ease;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    color: var(--green);
+
+    font-size: 24px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    margin-bottom: 28px;
+
+    animation:
+        fadeDown .8s
+        ease .1s both;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar {
 
     width: 105px;
     height: 105px;
 
     margin:
-        0 auto
-        20px;
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 
     border-radius: 50%;
 
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    font-size: 31px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
-
-    color:
-        var(--gold-light);
-
-    background:
-
-        radial-gradient(
-            circle at 35% 25%,
-            rgba(255,255,255,0.12),
-            transparent 45%
-        ),
-
-        rgba(8,18,2,0.35);
-
-    border:
-        1px solid
-        rgba(231,207,139,0.65);
-
-    box-shadow:
-
-        0 0 0 7px
-        rgba(231,207,139,0.06),
-
-        0 15px 40px
-        rgba(0,0,0,0.22);
-
-}
-
-
-/* =====================================================
-   HERO TEXT
-===================================================== */
-
-.hero h1 {
-
-    position: relative;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        clamp(
-            31px,
-            7vw,
-            48px
-        );
-
-    font-weight:
-        600;
-
-    letter-spacing:
-        0.5px;
-
-    margin-bottom:
-        10px;
-
-}
-
-
-.hero .subtitle {
-
-    position: relative;
-
-    color:
-        rgba(255,255,255,0.86);
-
-    font-size:
-        15px;
-
-    letter-spacing:
-        0.3px;
-
-    line-height:
-        1.7;
-
-}
-
-
-/* =====================================================
-   HERO BADGE
-===================================================== */
-
-.hero-badge {
-
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top:
-        22px;
-
-    padding:
-        8px 15px;
-
-    border:
-        1px solid
-        rgba(231,207,139,0.38);
-
-    border-radius:
-        50px;
-
-    color:
-        var(--gold-light);
-
-    background:
-        rgba(0,0,0,0.12);
-
-    font-size:
-        11px;
-
-    letter-spacing:
-        1px;
-
-    text-transform:
-        uppercase;
-
-}
-
-
-.hero-badge::before {
-
-    content: "";
-
-    width: 6px;
-    height: 6px;
-
-    border-radius: 50%;
-
-    background:
-        var(--gold-light);
-
-    box-shadow:
-        0 0 10px
-        var(--gold-light);
-
-}
-
-
-/* =====================================================
-   CONTACT ACTIONS
-===================================================== */
-
-.actions {
-
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 11px;
-
-    margin-top:
-        18px;
-
-}
-
-
-.action-btn {
-
-    min-height:
-        54px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 9px;
-
-    padding:
-        12px;
-
-    border-radius:
-        15px;
-
-    text-decoration:
-        none;
-
-    font-size:
-        13px;
-
-    font-weight:
-        600;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        background .25s ease;
-
-}
-
-
-.action-btn:hover {
-
-    transform:
-        translateY(-3px);
-
-}
-
-
-.action-btn.primary {
-
-    background:
-        var(--green);
-
-    color:
-        white;
-
-    box-shadow:
-        0 10px 25px
-        rgba(65,117,5,0.20);
-
-}
-
-
-.action-btn.secondary {
-
-    background:
-        white;
-
-    color:
-        var(--green-dark);
-
-    border:
-        1px solid
-        rgba(65,117,5,0.14);
-
-    box-shadow:
-        0 8px 22px
-        rgba(20,38,4,0.06);
-
-}
-
-
-/* =====================================================
-   ICON
-===================================================== */
-
-.action-icon {
-
-    width: 20px;
-    height: 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-}
-
-
-.action-icon svg {
-
-    width: 18px;
-    height: 18px;
-
-}
-
-
-/* =====================================================
-   SECTION
-===================================================== */
-
-.section {
-
-    margin-top:
-        24px;
-
-    padding:
-        27px
-        20px;
-
-    background:
-        rgba(255,255,255,0.86);
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        var(--radius);
-
-    box-shadow:
-        var(--shadow);
-
-    backdrop-filter:
-        blur(12px);
-
-}
-
-
-/* =====================================================
-   SECTION TITLE
-===================================================== */
-
-.section-title {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom:
-        20px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size:
-        22px;
-
-    color:
-        var(--green-dark);
-
-}
-
-
-.section-title::before {
-
-    content: "";
-
-    width: 4px;
-
-    height: 25px;
-
-    border-radius:
-        10px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--gold),
-            var(--green)
-        );
-
-}
-
-
-.section-title::after {
-
-    content: "";
-
-    flex: 1;
-
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(65,117,5,0.18),
-            transparent
-        );
-
-}
-
-
-/* =====================================================
-   ABOUT
-===================================================== */
-
-.about {
-
-    color:
-        #555a51;
-
-    font-size:
-        14px;
-
-    line-height:
-        2;
-
-}
-
-
-.about strong {
-
-    color:
-        var(--green);
-
-}
-
-
-/* =====================================================
-   SERVICES
-===================================================== */
-
-.services {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap:
-        12px;
-
-}
-
-
-.service {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    padding:
-        20px
-        15px;
-
-    border-radius:
-        19px;
+    color: white;
 
     background:
         linear-gradient(
             145deg,
-            #ffffff,
-            #f7f8f3
+            #527f19,
+            #315900
         );
+
+    font-size: 34px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    border:
+        4px solid white;
+
+    box-shadow:
+
+        0 0 0 1px
+        rgba(65,117,5,.22),
+
+        0 12px 35px
+        rgba(65,117,5,.22);
+
+    animation:
+        avatarIn 1s
+        cubic-bezier(.2,.8,.2,1)
+        .15s both;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+h1 {
+
+    font-size: 28px;
+    font-weight: 700;
+
+    text-align: center;
+
+    margin-bottom: 9px;
+}
+
+.subtitle {
+
+    color: var(--green);
+
+    font-size: 15px;
+    font-weight: 700;
+
+    text-align: center;
+
+    margin-bottom: 18px;
+}
+
+.description {
+
+    max-width: 365px;
+
+    margin:
+        0 auto 26px;
+
+    color: #777;
+
+    font-size: 14px;
+    line-height: 1.75;
+
+    text-align: center;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 11px;
+}
+
+.btn {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 51px;
+
+    padding: 13px 18px;
+
+    border-radius: 15px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--green);
+
+    background: #fff;
 
     border:
         1px solid
-        rgba(65,117,5,0.11);
+        rgba(65,117,5,.15);
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.035);
 
     transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+        transform .28s ease,
+        box-shadow .28s ease,
+        background .28s ease;
+}
 
+.btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+
+        0 12px 25px
+        rgba(0,0,0,.08),
+
+        0 4px 12px
+        rgba(65,117,5,.06);
+}
+
+.btn:active {
+
+    transform:
+        scale(.97);
+}
+
+.btn svg {
+
+    width: 19px;
+    height: 19px;
+
+    flex-shrink: 0;
 }
 
 
-.service::after {
+/* WhatsApp */
 
-    content: "";
+.btn-main {
 
-    position:
-        absolute;
-
-    width:
-        80px;
-
-    height:
-        80px;
-
-    border-radius:
-        50%;
-
-    right:
-        -40px;
-
-    top:
-        -40px;
+    color: white;
 
     background:
-        rgba(200,168,91,0.10);
+        linear-gradient(
+            135deg,
+            #417505,
+            #315900
+        );
 
+    border-color:
+        #417505;
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(65,117,5,.20);
 }
 
+
+/* Email */
+
+.email-btn {
+
+    background:
+        #fafbf8;
+}
+
+
+/* Contact */
+
+.contact-btn {
+
+    background:
+        #f8f9f6;
+}
+
+
+/* Share */
+
+.share-btn {
+
+    color: #17200f;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f1f4ec
+        );
+
+    border-color:
+        rgba(181,155,91,.30);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(65,117,5,.10);
+}
+
+.section-title {
+
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    margin-bottom: 17px;
+}
+
+.section-title span {
+
+    color:
+        var(--green);
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box {
+
+    background:
+        var(--light);
+
+    padding: 18px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(65,117,5,.08);
+
+    color: #666;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 11px;
+}
+
+.service {
+
+    padding: 17px 10px;
+
+    background: #fff;
+
+    border:
+        1px solid
+        rgba(65,117,5,.12);
+
+    border-radius: 16px;
+
+    text-align: center;
+
+    transition: .25s ease;
+}
 
 .service:hover {
 
     transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(200,168,91,0.45);
+        translateY(-3px);
 
     box-shadow:
-        0 15px 35px
-        rgba(20,38,4,0.08);
-
+        0 10px 22px
+        rgba(0,0,0,.06);
 }
-
 
 .service-icon {
 
-    width:
-        42px;
+    width: 38px;
+    height: 38px;
 
-    height:
-        42px;
+    margin:
+        0 auto 9px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
+    justify-content: center;
 
-    justify-content:
-        center;
-
-    margin-bottom:
-        12px;
-
-    border-radius:
-        13px;
+    border-radius: 12px;
 
     color:
         var(--green);
 
     background:
-        rgba(65,117,5,0.08);
-
+        rgba(65,117,5,.08);
 }
-
 
 .service-icon svg {
 
-    width:
-        21px;
-
-    height:
-        21px;
-
+    width: 20px;
+    height: 20px;
 }
-
 
 .service h3 {
 
-    font-size:
-        14px;
+    font-size: 13px;
 
-    color:
-        var(--green-dark);
-
-    margin-bottom:
-        7px;
-
+    margin-bottom: 5px;
 }
-
 
 .service p {
 
-    font-size:
-        11px;
+    color: #888;
 
-    line-height:
-        1.7;
+    font-size: 11px;
 
-    color:
-        var(--gray);
-
+    line-height: 1.5;
 }
 
 
-/* =====================================================
-   PROJECTS
-===================================================== */
+/* =========================
+   PORTFOLIO
+========================= */
 
 .project {
 
-    position:
-        relative;
+    padding: 17px;
 
-    padding:
-        18px;
-
-    margin-bottom:
-        12px;
-
-    border-radius:
-        18px;
+    margin-bottom: 11px;
 
     background:
-        #fff;
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f5f7f1
+        );
 
     border:
         1px solid
-        rgba(65,117,5,0.10);
+        rgba(65,117,5,.12);
 
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+    border-radius: 17px;
 
+    transition: .25s ease;
 }
-
-
-.project:last-child {
-
-    margin-bottom:
-        0;
-
-}
-
 
 .project:hover {
 
@@ -951,510 +597,231 @@ body {
         translateY(-3px);
 
     box-shadow:
-        0 14px 30px
-        rgba(20,38,4,0.07);
-
+        0 10px 22px
+        rgba(0,0,0,.06);
 }
-
 
 .project-top {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        14px;
-
+    gap: 12px;
 }
-
 
 .project-icon {
 
-    flex-shrink:
-        0;
+    width: 42px;
+    height: 42px;
 
-    width:
-        48px;
+    flex-shrink: 0;
 
-    height:
-        48px;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
+    justify-content: center;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border-radius:
-        14px;
-
-    color:
-        var(--gold);
-
-    background:
-        var(--green-deep);
-
-}
-
-
-.project-icon svg {
-
-    width:
-        22px;
-
-    height:
-        22px;
-
-}
-
-
-.project h3 {
-
-    color:
-        var(--green-dark);
-
-    font-size:
-        15px;
-
-    margin-bottom:
-        5px;
-
-}
-
-
-.project p {
-
-    color:
-        var(--gray);
-
-    font-size:
-        12px;
-
-    line-height:
-        1.7;
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        10px;
-
-}
-
-
-.stat {
-
-    text-align:
-        center;
-
-    padding:
-        18px
-        8px;
-
-    border-radius:
-        17px;
+    color: white;
 
     background:
         linear-gradient(
             145deg,
-            #ffffff,
-            #f5f6f0
+            #527f19,
+            #315900
         );
 
-    border:
-        1px solid
-        rgba(65,117,5,0.10);
+    border-radius: 13px;
+}
 
+.project-icon svg {
+
+    width: 21px;
+    height: 21px;
+}
+
+.project h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+.project p {
+
+    color: #888;
+
+    font-size: 11px;
+
+    line-height: 1.5;
 }
 
 
+/* =========================
+   STATS
+========================= */
+
+.stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 8px;
+}
+
+.stat {
+
+    text-align: center;
+
+    padding: 15px 5px;
+
+    background:
+        #fafbf8;
+
+    border-radius: 15px;
+
+    border:
+        1px solid
+        rgba(65,117,5,.08);
+}
+
 .stat strong {
 
-    display:
-        block;
+    display: block;
 
     color:
         var(--green);
 
-    font-family:
-        Georgia,
-        serif;
+    font-size: 21px;
 
-    font-size:
-        22px;
-
-    margin-bottom:
-        5px;
-
+    margin-bottom: 4px;
 }
-
 
 .stat span {
 
-    color:
-        var(--gray);
+    color: #888;
 
-    font-size:
-        10px;
-
+    font-size: 10px;
 }
 
 
-/* =====================================================
-   QR BOX
-===================================================== */
+/* =========================
+   QR CODE
+========================= */
 
 .qr-box {
 
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    padding:
-        24px;
-
-    border-radius:
-        20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #ffffff,
-            #f5f6f0
-        );
-
-    border:
-        1px solid
-        rgba(200,168,91,0.28);
-
+    text-align: center;
 }
-
 
 .qr-box img {
 
-    width:
-        190px;
+    width: 150px;
+    height: 150px;
 
-    height:
-        190px;
+    padding: 8px;
 
-    padding:
-        10px;
+    background: white;
 
-    background:
-        white;
-
-    border-radius:
-        15px;
+    border-radius: 18px;
 
     border:
         1px solid
-        rgba(65,117,5,0.12);
+        rgba(65,117,5,.15);
 
     box-shadow:
-        0 12px 30px
-        rgba(20,38,4,0.08);
-
+        0 10px 25px
+        rgba(0,0,0,.07);
 }
-
 
 .qr-text {
 
-    margin-top:
-        15px;
+    margin-top: 11px;
 
-    color:
-        var(--gray);
+    color: #888;
 
-    font-size:
-        12px;
-
-    text-align:
-        center;
-
-    line-height:
-        1.7;
-
+    font-size: 11px;
 }
 
 
-/* =====================================================
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 .footer {
 
-    margin-top:
-        25px;
+    margin-top: 30px;
 
-    padding:
-        22px
-        10px;
+    padding-top: 20px;
 
-    text-align:
-        center;
+    border-top:
+        1px solid
+        rgba(65,117,5,.09);
 
-    color:
-        #858980;
+    color: #aaa;
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    letter-spacing:
-        .3px;
-
+    text-align: center;
 }
 
 
-.footer::before {
-
-    content: "";
-
-    display:
-        block;
-
-    width:
-        45px;
-
-    height:
-        1px;
-
-    margin:
-        0 auto
-        13px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--gold),
-            transparent
-        );
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 520px) {
-
-    .container {
-
-        padding:
-            13px
-            11px
-            35px;
-
-    }
-
-
-    .hero {
-
-        padding:
-            38px
-            18px
-            32px;
-
-        border-radius:
-            25px;
-
-    }
-
-
-    .profile-logo {
-
-        width:
-            90px;
-
-        height:
-            90px;
-
-        font-size:
-            27px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size:
-            31px;
-
-    }
-
-
-    .hero .subtitle {
-
-        font-size:
-            13px;
-
-    }
-
-
-    .actions {
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-
-    .action-btn {
-
-        font-size:
-            11px;
-
-        min-height:
-            51px;
-
-    }
-
-
-    .section {
-
-        padding:
-            23px
-            14px;
-
-        border-radius:
-            21px;
-
-    }
-
-
-    .section-title {
-
-        font-size:
-            20px;
-
-    }
-
-
-    .services {
-
-        gap:
-            9px;
-
-    }
-
-
-    .service {
-
-        padding:
-            17px
-            12px;
-
-    }
-
-
-    .service h3 {
-
-        font-size:
-            13px;
-
-    }
-
-
-    .service p {
-
-        font-size:
-            10px;
-
-    }
-
-
-    .stats {
-
-        gap:
-            7px;
-
-    }
-
-
-    .stat {
-
-        padding:
-            15px
-            5px;
-
-    }
-
-
-    .stat strong {
-
-        font-size:
-            19px;
-
-    }
-
-}
-
-
-/* =====================================================
-   SMALL PHONES
-===================================================== */
-
-@media (max-width: 360px) {
-
-    .actions {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-
-    .services {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-}
-
-
-/* =====================================================
-   PREMIUM ANIMATION
-===================================================== */
-
-@keyframes luxuryFade {
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes cardIn {
 
     from {
 
         opacity: 0;
 
         transform:
-            translateY(15px);
+            translateY(35px)
+            scale(.97);
+    }
 
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+@keyframes avatarIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(.65)
+            rotate(-8deg);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes fadeDown {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-15px);
     }
 
     to {
@@ -1463,174 +830,461 @@ body {
 
         transform:
             translateY(0);
+    }
+}
 
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+    body {
+
+        padding:
+            12px 9px 30px;
     }
 
-}
+    .card {
 
+        padding:
+            28px 18px 25px;
 
-.hero {
+        border-radius:
+            24px;
+    }
 
-    animation:
-        luxuryFade .7s ease both;
+    .avatar {
 
-}
+        width: 92px;
+        height: 92px;
 
+        font-size: 30px;
+    }
 
-.section {
+    h1 {
 
-    animation:
-        luxuryFade .7s ease both;
+        font-size: 24px;
+    }
 
-}
+    .services {
 
-
-/* =====================================================
-   SELECTION
-===================================================== */
-
-::selection {
-
-    background:
-        var(--green);
-
-    color:
-        white;
-
+        gap: 8px;
+    }
 }
 
 </style>
 
 </head>
 
-
 <body>
 
-<div class="container">
+<div class="card">
 
+    <!-- LANGUAGE BUTTONS -->
 
-    <!-- LANGUAGE BAR -->
-
-    <div class="language-bar">
+    <div class="language-switcher">
 
         <button
             class="lang-btn active"
             onclick="changeLanguage('fr', this)">
-
             FR
-
         </button>
-
 
         <button
             class="lang-btn"
             onclick="changeLanguage('ar', this)">
-
-            AR
-
+            العربية
         </button>
-
 
         <button
             class="lang-btn"
             onclick="changeLanguage('en', this)">
-
             EN
-
         </button>
 
     </div>
 
 
-    <!-- HERO -->
+    <!-- LOGO -->
 
-    <header class="hero">
+    <div class="logo">
+        TOP MARKET
+    </div>
 
 
-        <div class="profile-logo">
+    <!-- INITIALS -->
 
-            MS
+    <div class="avatar">
+        MH
+    </div>
+
+
+    <!-- INTRO -->
+
+    <h1>
+        Mohamed Sakhi
+    </h1>
+
+
+    <div
+        class="subtitle"
+        data-fr="Créateur de produits numériques"
+        data-ar="منشئ المنتجات الرقمية"
+        data-en="Digital Product Creator">
+
+        Créateur de produits numériques
+
+    </div>
+
+
+    <div
+        class="description"
+        data-fr="Création de solutions numériques modernes et professionnelles. Découvrez mes projets et contactez-moi directement."
+        data-ar="إنشاء حلول رقمية حديثة واحترافية. اكتشف مشاريعي وتواصل معي مباشرة."
+        data-en="Creation of modern and professional digital solutions. Discover my projects and contact me directly.">
+
+        Création de solutions numériques modernes et professionnelles.
+        Découvrez mes projets et contactez-moi directement.
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+        <!-- WHATSAPP -->
+
+        <a
+            class="btn btn-main"
+            href="https://wa.me/212728018946"
+            target="_blank">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path
+                    d="M21 11.5a8.4 8.4 0 0 1-12.5 7.3L3 20l1.3-5.2A8.4 8.4 0 1 1 21 11.5Z"/>
+
+                <path
+                    d="M8.5 9.2c.3 1.7 2.2 3.8 4.1 4.4l1.4-.9"/>
+
+            </svg>
+
+            <span
+                data-fr="WhatsApp"
+                data-ar="واتساب"
+                data-en="WhatsApp">
+
+                WhatsApp
+
+            </span>
+
+        </a>
+
+
+        <!-- INSTAGRAM -->
+
+        <a
+            class="btn"
+            href="https://www.instagram.com/topmarket741?stkn=OWs3eWdiY3ppbGJu"
+            target="_blank">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5"/>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4"/>
+
+                <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r=".8"
+                    fill="currentColor"/>
+
+            </svg>
+
+            <span
+                data-fr="Instagram"
+                data-ar="Instagram"
+                data-en="Instagram">
+
+                Instagram
+
+            </span>
+
+        </a>
+
+
+        <!-- FACEBOOK -->
+
+        <a
+            class="btn"
+            href="https://www.facebook.com/share/1CMhfdQ5oV/"
+            target="_blank">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path
+                    d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.7.3-1 1-1Z"/>
+
+            </svg>
+
+            <span
+                data-fr="Facebook"
+                data-ar="فيسبوك"
+                data-en="Facebook">
+
+                Facebook
+
+            </span>
+
+        </a>
+
+
+        <!-- WEBSITE -->
+
+        <a
+            class="btn"
+            href="https://www.topmarket.pro/"
+            target="_blank">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"/>
+
+                <path
+                    d="M3 12h18"/>
+
+                <path
+                    d="M12 3c3 3 3 15 0 18"/>
+
+                <path
+                    d="M12 3c-3 3-3 15 0 18"/>
+
+            </svg>
+
+            <span
+                data-fr="Visiter Top Market"
+                data-ar="زيارة Top Market"
+                data-en="Visit Top Market">
+
+                Visiter Top Market
+
+            </span>
+
+        </a>
+
+
+        <!-- EMAIL -->
+
+        <a
+            class="btn email-btn"
+            href="mailto:sakhimed959@gmail.com">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <rect
+                    x="3"
+                    y="5"
+                    width="18"
+                    height="14"
+                    rx="2"/>
+
+                <path
+                    d="m3 7 9 6 9-6"/>
+
+            </svg>
+
+            <span
+                data-fr="E-mail"
+                data-ar="البريد الإلكتروني"
+                data-en="Email">
+
+                E-mail
+
+            </span>
+
+        </a>
+
+
+        <!-- CALL -->
+
+        <a
+            class="btn"
+            href="tel:+212728018946">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path
+                    d="M5 4h4l2 5-2.5 1.5a15 15 0 0 0 5 5L15 13l5 2v4c0 1-1 2-2 2C10 21 3 14 3 6c0-1.1.9-2 2-2Z"/>
+
+            </svg>
+
+            <span
+                data-fr="Appeler"
+                data-ar="اتصل بي"
+                data-en="Call me">
+
+                Appeler
+
+            </span>
+
+        </a>
+
+
+        <!-- SAVE CONTACT -->
+
+        <a
+            class="btn contact-btn"
+            href="#"
+            onclick="downloadContact(); return false;">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <path
+                    d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+
+                <path
+                    d="M4 21a8 8 0 0 1 16 0"/>
+
+            </svg>
+
+            <span
+                data-fr="Enregistrer le contact"
+                data-ar="حفظ جهة الاتصال"
+                data-en="Save contact">
+
+                Enregistrer le contact
+
+            </span>
+
+        </a>
+
+
+        <!-- SHARE -->
+
+        <a
+            class="btn share-btn"
+            href="#"
+            onclick="shareCard(); return false;">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+
+                <circle
+                    cx="18"
+                    cy="5"
+                    r="2.5"/>
+
+                <circle
+                    cx="6"
+                    cy="12"
+                    r="2.5"/>
+
+                <circle
+                    cx="18"
+                    cy="19"
+                    r="2.5"/>
+
+                <path
+                    d="m8.2 10.8 7.6-4.4"/>
+
+                <path
+                    d="m8.2 13.2 7.6 4.4"/>
+
+            </svg>
+
+            <span
+                data-fr="Partager ma carte"
+                data-ar="مشاركة بطاقتي"
+                data-en="Share my card">
+
+                Partager ma carte
+
+            </span>
+
+        </a>
+
+    </div>
+
+
+    <!-- ABOUT -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <span
+                data-fr="À propos"
+                data-ar="نبذة عني"
+                data-en="About me">
+
+                À propos
+
+            </span>
 
         </div>
-
-
-        <div class="luxury-line"></div>
-
-
-        <h1>
-            Mohamed Sakhi
-        </h1>
 
 
         <div
-            class="subtitle"
-            data-fr="Créateur de produits numériques"
-            data-ar="منشئ منتجات رقمية"
-            data-en="Digital Product Creator">
+            class="about-box"
+            data-fr="Je crée des expériences numériques modernes, des sites web et des solutions digitales pensées pour donner une image professionnelle aux projets et aux entreprises."
+            data-ar="أعمل على إنشاء تجارب رقمية حديثة ومواقع وحلول رقمية تساعد المشاريع والشركات على الظهور بصورة احترافية."
+            data-en="I create modern digital experiences, websites and digital solutions designed to give projects and businesses a professional image.">
 
-            Créateur de produits numériques
-
-        </div>
-
-
-        <div
-            class="hero-badge"
-            data-fr="Digital • Créatif • Professionnel"
-            data-ar="رقمي • إبداعي • احترافي"
-            data-en="Digital • Creative • Professional">
-
-            Digital • Créatif • Professionnel
+            Je crée des expériences numériques modernes,
+            des sites web et des solutions digitales pensées
+            pour donner une image professionnelle aux projets
+            et aux entreprises.
 
         </div>
 
-
-        <div class="actions">
-
-
-            <a
-                class="action-btn primary"
-                href="https://wa.me/212728018946"
-                target="_blank">
-
-                <span class="action-icon">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2">
-
-                        <path
-                            d="M21 11.5a8.38 8.38 0 0 1-9 9 8.5 8.5 0 0 1-4-.9L3 21l1.4-4.7A8.5 8.5 0 1 1 21 11.5z"/>
-
-                        <path
-                            d="M8.5 9.5c.4 2 2 3.6 4 4"/>
-
-                    </svg>
-
-                </span>
-
-                <span
-                    data-fr="WhatsApp"
-                    data-ar="واتساب"
-                    data-en="WhatsApp">
-
-                    WhatsApp
-
-                </span>
-
-            </a>
-
-
-            <a
-                class="action-btn secondary"
-                href="tel:+212728018946">
-
-                <span class="action-icon">
-
-                    <svg
-                        viewBo
-                          <!-- SERVICES -->
+    </section>
+    <!-- SERVICES -->
 
     <section class="section">
 
@@ -1870,6 +1524,7 @@ body {
 
             <div class="project-top">
 
+
                 <div class="project-icon">
 
                     <svg
@@ -1918,6 +1573,7 @@ body {
         <div class="project">
 
             <div class="project-top">
+
 
                 <div class="project-icon">
 
@@ -2091,11 +1747,13 @@ body {
     </div>
 
 </div>
-                          <script>
 
-/* =====================================================
-   LANGUAGE SYSTEM
-===================================================== */
+
+<script>
+
+/* =========================
+   INTERNAL LANGUAGE SYSTEM
+========================= */
 
 function changeLanguage(lang, button) {
 
@@ -2111,7 +1769,6 @@ function changeLanguage(lang, button) {
 
     button.classList.add("active");
 
-
     document
         .querySelectorAll("[data-" + lang + "]")
         .forEach(function(element) {
@@ -2122,7 +1779,6 @@ function changeLanguage(lang, button) {
                 );
 
         });
-
 
     if (lang === "ar") {
 
@@ -2139,9 +1795,9 @@ function changeLanguage(lang, button) {
 }
 
 
-/* =====================================================
+/* =========================
    SAVE CONTACT
-===================================================== */
+========================= */
 
 function downloadContact() {
 
@@ -2166,39 +1822,31 @@ END:VCARD`;
         }
     );
 
-
     const url =
         URL.createObjectURL(blob);
-
 
     const link =
         document.createElement("a");
 
-
     link.href = url;
-
 
     link.download =
         "Mohamed-Sakhi.vcf";
 
-
     document.body.appendChild(link);
-
 
     link.click();
 
-
     document.body.removeChild(link);
-
 
     URL.revokeObjectURL(url);
 
 }
 
 
-/* =====================================================
+/* =========================
    SHARE
-===================================================== */
+========================= */
 
 async function shareCard() {
 
@@ -2215,7 +1863,6 @@ async function shareCard() {
 
     };
 
-
     try {
 
         if (navigator.share) {
@@ -2229,7 +1876,6 @@ async function shareCard() {
             await navigator.clipboard.writeText(
                 window.location.href
             );
-
 
             alert(
                 "Lien de la carte copié !"
@@ -2257,15 +1903,14 @@ async function shareCard() {
 }
 
 
-/* =====================================================
+/* =========================
    QR CODE
-===================================================== */
+========================= */
 
 function createQRCode() {
 
     const currentURL =
         window.location.href;
-
 
     const qr =
         "https://api.qrserver.com/v1/create-qr-code/" +
@@ -2274,20 +1919,20 @@ function createQRCode() {
             currentURL
         );
 
-
     document
         .getElementById("qrCode")
         .src = qr;
 
 }
 
-
 createQRCode();
 
+</script>
+<!-- =========================
+     OFFLINE MODE
+========================= -->
 
-/* =====================================================
-   OFFLINE MODE
-===================================================== */
+<script>
 
 if ("serviceWorker" in navigator) {
 
