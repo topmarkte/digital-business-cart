@@ -1,9 +1,9 @@
-const CACHE_NAME = "mohamed-card-v1";
+const CACHE_NAME = "mohamed-card-v2";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./services.html"
 ];
 
 self.addEventListener("install", event => {
@@ -41,9 +41,7 @@ self.addEventListener("fetch", event => {
 
           return networkResponse;
         })
-        .catch(() => {
-          return caches.match("./index.html");
-        });
+        .catch(() => caches.match("./index.html"));
     })
   );
 });
