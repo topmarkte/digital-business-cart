@@ -1966,25 +1966,10 @@ async function shareCard() {
 ========================= */
 
 function createQRCode() {
-
-    const currentURL =
-        window.location.href;
-
-    const qr =
-        "https://api.qrserver.com/v1/create-qr-code/" +
-        "?size=300x300&data=" +
-        encodeURIComponent(
-            currentURL
-        );
-
-    document
-        .getElementById("qrCode")
-        .src = qr;
-
+    document.getElementById("qrCode").src = "./qr-code.png";
 }
 
 createQRCode();
-
 </script>
 <!-- =========================
      OFFLINE MODE
