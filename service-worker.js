@@ -7,8 +7,10 @@ const FILES_TO_CACHE = [
   "./manifest.json",
   "./mh-icon.png",
   "./mh-icon-192.png",
-  "./mh-icon-512.png"
+  "./mh-icon-512.png",
+  "./qr-code.png"
 ];
+
 
 self.addEventListener("install", event => {
   event.waitUntil(
