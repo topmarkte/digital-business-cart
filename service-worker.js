@@ -1,11 +1,13 @@
-const CACHE_NAME = "mohamed-card-v4";
+const CACHE_NAME = "mohamed-card-v5";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./services.html",
   "./manifest.json",
-  "./mh-icon.png"
+  "./mh-icon.png",
+  "./mh-icon-192.png",
+  "./mh-icon-512.png"
 ];
 
 self.addEventListener("install", event => {
