@@ -1989,7 +1989,80 @@ createQRCode();
 <!-- =========================
      OFFLINE MODE
 ========================= -->
+<script>
+/* =========================
+   INSTALL APP
+========================= */
 
+let deferredPrompt;
+
+const installBtn =
+    document.getElementById("installBtn");
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event) {
+
+        event.preventDefault();
+
+        deferredPrompt = event;
+
+        if (installBtn) {
+            installBtn.style.display = "flex";
+        }
+
+    }
+);
+
+if (installBtn) {
+
+    installBtn.addEventListener(
+        "click",
+        async function() {
+
+            if (!deferredPrompt) {
+                return;
+            }
+
+            deferredPrompt.prompt();
+
+            const result =
+                await deferredPrompt.userChoice;
+
+            deferredPrompt = null;
+
+            installBtn.style.display = "none";
+
+        }
+    );
+
+}
+
+window.addEventListener(
+    "appinstalled",
+    function() {
+
+        if (installBtn) {
+            installBtn.style.display = "none";
+        }
+
+    }
+);
+
+/* إخفاء الزر إذا كانت البطاقة مفتوحة كتطبيق مثبت */
+if (
+    window.matchMedia(
+        "(display-mode: standalone)"
+    ).matches ||
+    window.navigator.standalone === true
+) {
+
+    if (installBtn) {
+        installBtn.style.display = "none";
+    }
+
+}
+</script>
 <script>
 
 if ("serviceWorker" in navigator) {
