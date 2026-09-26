@@ -1,9 +1,11 @@
-const CACHE_NAME = "mohamed-card-v3";
+const CACHE_NAME = "mohamed-card-v4";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
-  "./services.html"
+  "./services.html",
+  "./manifest.json",
+  "./mh-icon.png"
 ];
 
 self.addEventListener("install", event => {
@@ -33,6 +35,11 @@ self.addEventListener("fetch", event => {
     caches.match(event.request).then(cachedResponse => {
       return cachedResponse || fetch(event.request)
         .then(networkResponse => {
+
+          if (!networkResponse || !networkResponse.ok) {
+            return networkResponse;
+          }
+
           const responseClone = networkResponse.clone();
 
           caches.open(CACHE_NAME).then(cache => {
@@ -41,7 +48,9 @@ self.addEventListener("fetch", event => {
 
           return networkResponse;
         })
-        .catch(() => caches.match("./index.html"));
+        .catch(() => {
+          return caches.match("./index.html");
+        });
     })
   );
 });
