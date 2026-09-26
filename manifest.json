@@ -8,5 +8,12 @@
   "theme_color": "#417505",
   "orientation": "portrait",
   "lang": "fr",
-  "dir": "ltr"
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "./mh-icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png"
+    }
+  ]
 }
