@@ -7,9 +7,7 @@
 
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0">
-
 <link rel="manifest" href="./manifest.json">
-
 <meta name="google"
       content="translate">
 
@@ -1139,11 +1137,13 @@ h1 {
 
             </span>
 
-              </a>
-                      <!-- CALL -->
+        </a>
+
+
+        <!-- CALL -->
 
         <a
-            class="btn contact-btn"
+            class="btn"
             href="tel:+212728018946">
 
             <svg
@@ -1153,25 +1153,14 @@ h1 {
                 stroke-width="2">
 
                 <path
-                    d="M22 16.9v3a2 2 0 0 1-2.2 2
-                    19.8 19.8 0 0 1-8.6-3.1
-                    19.5 19.5 0 0 1-6-6
-                    A19.8 19.8 0 0 1 2.1 4.2
-                    2 2 0 0 1 5.1 2h3
-                    a2 2 0 0 1 2 1.7
-                    12.8 12.8 0 0 0 .7 2.8
-                    2 2 0 0 1-.5 2.1L9 9.9
-                    a16 16 0 0 0 6 6l1.3-1.3
-                    a2 2 0 0 1 2.1-.5
-                    12.8 12.8 0 0 0 2.8.7
-                    A2 2 0 0 1 22 16.9Z"/>
+                    d="M5 4h4l2 5-2.5 1.5a15 15 0 0 0 5 5L15 13l5 2v4c0 1-1 2-2 2C10 21 3 14 3 6c0-1.1.9-2 2-2Z"/>
 
             </svg>
 
             <span
                 data-fr="Appeler"
                 data-ar="اتصل بي"
-                data-en="Call">
+                data-en="Call me">
 
                 Appeler
 
@@ -1182,10 +1171,10 @@ h1 {
 
         <!-- SAVE CONTACT -->
 
-        <button
+        <a
             class="btn contact-btn"
-            type="button"
-            onclick="downloadContact()">
+            href="#"
+            onclick="downloadContact(); return false;">
 
             <svg
                 viewBox="0 0 24 24"
@@ -1194,13 +1183,10 @@ h1 {
                 stroke-width="2">
 
                 <path
-                    d="M12 3v12"/>
+                    d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
 
                 <path
-                    d="m7 10 5 5 5-5"/>
-
-                <path
-                    d="M5 21h14"/>
+                    d="M4 21a8 8 0 0 1 16 0"/>
 
             </svg>
 
@@ -1213,15 +1199,15 @@ h1 {
 
             </span>
 
-        </button>
+        </a>
 
 
         <!-- SHARE -->
 
-        <button
+        <a
             class="btn share-btn"
-            type="button"
-            onclick="shareCard()">
+            href="#"
+            onclick="shareCard(); return false;">
 
             <svg
                 viewBox="0 0 24 24"
@@ -1232,124 +1218,101 @@ h1 {
                 <circle
                     cx="18"
                     cy="5"
-                    r="2"/>
+                    r="2.5"/>
 
                 <circle
                     cx="6"
                     cy="12"
-                    r="2"/>
+                    r="2.5"/>
 
                 <circle
                     cx="18"
                     cy="19"
-                    r="2"/>
+                    r="2.5"/>
 
                 <path
-                    d="m8 11 8-5"/>
+                    d="m8.2 10.8 7.6-4.4"/>
 
                 <path
-                    d="m8 13 8 5"/>
+                    d="m8.2 13.2 7.6 4.4"/>
 
             </svg>
 
             <span
-                data-fr="Partager la carte"
-                data-ar="مشاركة البطاقة"
-                data-en="Share card">
+                data-fr="Partager ma carte"
+                data-ar="مشاركة بطاقتي"
+                data-en="Share my card">
 
-                Partager la carte
-
-            </span>
-
-        </button>
-
-
-        <!-- INSTALL APP -->
-
-        <button
-            id="installBtn"
-            class="btn"
-            type="button"
-            style="display:none;">
-
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2">
-
-                <path
-                    d="M12 3v12"/>
-
-                <path
-                    d="m7 10 5 5 5-5"/>
-
-                <path
-                    d="M5 21h14"/>
-
-            </svg>
-
-            <span
-                data-fr="Ajouter à l'écran d'accueil"
-                data-ar="إضافة إلى الشاشة الرئيسية"
-                data-en="Add to home screen">
-
-                Ajouter à l'écran d'accueil
-
-            </span>
-
-        </button>
-
-
-        <!-- SERVICES BUTTON -->
-
-        <a
-            class="btn"
-            href="#services">
-
-            <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2">
-
-                <rect
-                    x="3"
-                    y="4"
-                    width="18"
-                    height="16"
-                    rx="2"/>
-
-                <path
-                    d="M8 8h8"/>
-
-                <path
-                    d="M8 12h8"/>
-
-                <path
-                    d="M8 16h5"/>
-
-            </svg>
-
-            <span
-                data-fr="Mes services"
-                data-ar="خدماتي"
-                data-en="My services">
-
-                Mes services
+                Partager ma carte
 
             </span>
 
         </a>
+<!-- SERVICES -->
+<a class="btn" href="./services.html">
 
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+        <rect
+            x="4"
+            y="4"
+            width="16"
+            height="16"
+            rx="2"/>
+
+        <path d="M8 9h8"/>
+        <path d="M8 13h5"/>
+        <path d="M8 17h7"/>
+
+    </svg>
+
+    <span
+        data-fr="Mes services"
+        data-ar="خدماتي"
+        data-en="My services">
+        Mes services
+    </span>
+
+</a>
+          <!-- INSTALL APP -->
+<button
+    id="installBtn"
+    class="btn"
+    type="button"
+    style="display:none;">
+
+    <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2">
+
+        <path d="M12 3v12"/>
+        <path d="m7 10 5 5 5-5"/>
+        <path d="M5 21h14"/>
+
+    </svg>
+
+    <span
+        data-fr="Ajouter à l'écran d'accueil"
+        data-ar="إضافة إلى الشاشة الرئيسية"
+        data-en="Add to home screen">
+
+        Ajouter à l'écran d'accueil
+
+    </span>
+
+</button>
     </div>
 
 
-    <!-- =========================
-         ABOUT
-    ========================= -->
+    <!-- ABOUT -->
 
-    <div class="section">
+    <section class="section">
 
         <div class="section-title">
 
@@ -1365,31 +1328,23 @@ h1 {
         </div>
 
 
-        <div class="about-box">
+        <div
+            class="about-box"
+            data-fr="Je crée des expériences numériques modernes, des sites web et des solutions digitales pensées pour donner une image professionnelle aux projets et aux entreprises."
+            data-ar="أعمل على إنشاء تجارب رقمية حديثة ومواقع وحلول رقمية تساعد المشاريع والشركات على الظهور بصورة احترافية."
+            data-en="I create modern digital experiences, websites and digital solutions designed to give projects and businesses a professional image.">
 
-            <span
-                data-fr="Je crée des produits et solutions numériques modernes, avec une attention particulière portée au design, à l'expérience utilisateur et à la simplicité."
-                data-ar="أعمل على إنشاء منتجات وحلول رقمية حديثة، مع اهتمام خاص بالتصميم وتجربة المستخدم والبساطة."
-                data-en="I create modern digital products and solutions, with a strong focus on design, user experience and simplicity.">
-
-                Je crée des produits et solutions numériques modernes,
-                avec une attention particulière portée au design,
-                à l'expérience utilisateur et à la simplicité.
-
-            </span>
+            Je crée des expériences numériques modernes,
+            des sites web et des solutions digitales pensées
+            pour donner une image professionnelle aux projets
+            et aux entreprises.
 
         </div>
 
-    </div>
+    </section>
+    <!-- SERVICES -->
 
-
-    <!-- =========================
-         SERVICES
-    ========================= -->
-
-    <div
-        class="section"
-        id="services">
+    <section class="section">
 
         <div class="section-title">
 
@@ -1408,8 +1363,6 @@ h1 {
         <div class="services">
 
 
-            <!-- SERVICE 1 -->
-
             <div class="service">
 
                 <div class="service-icon">
@@ -1424,44 +1377,41 @@ h1 {
                             x="3"
                             y="4"
                             width="18"
-                            height="16"
+                            height="15"
                             rx="2"/>
 
                         <path
-                            d="M7 8h10"/>
+                            d="M8 21h8"/>
 
                         <path
-                            d="M7 12h6"/>
-
-                        <path
-                            d="M7 16h4"/>
+                            d="M12 19v2"/>
 
                     </svg>
 
                 </div>
 
+
                 <h3
                     data-fr="Sites web"
-                    data-ar="المواقع الإلكترونية"
+                    data-ar="مواقع الويب"
                     data-en="Websites">
 
                     Sites web
 
                 </h3>
 
-                <p
-                    data-fr="Création de sites modernes et professionnels."
-                    data-ar="إنشاء مواقع حديثة واحترافية."
-                    data-en="Modern and professional website creation.">
 
-                    Création de sites modernes et professionnels.
+                <p
+                    data-fr="Sites modernes et professionnels"
+                    data-ar="مواقع حديثة واحترافية"
+                    data-en="Modern and professional websites">
+
+                    Sites modernes et professionnels
 
                 </p>
 
             </div>
 
-
-            <!-- SERVICE 2 -->
 
             <div class="service">
 
@@ -1473,44 +1423,44 @@ h1 {
                         stroke="currentColor"
                         stroke-width="2">
 
-                        <path
-                            d="M4 4h16v16H4z"/>
+                        <rect
+                            x="4"
+                            y="5"
+                            width="16"
+                            height="14"/>
 
                         <path
-                            d="M8 8h8"/>
+                            d="M8 9h8"/>
 
                         <path
-                            d="M8 12h8"/>
-
-                        <path
-                            d="M8 16h5"/>
+                            d="M8 13h5"/>
 
                     </svg>
 
                 </div>
 
-                <h3
-                    data-fr="Cartes digitales"
-                    data-ar="البطاقات الرقمية"
-                    data-en="Digital cards">
 
-                    Cartes digitales
+                <h3
+                    data-fr="E-commerce"
+                    data-ar="المتاجر الإلكترونية"
+                    data-en="E-commerce">
+
+                    E-commerce
 
                 </h3>
 
-                <p
-                    data-fr="Cartes de visite digitales avec QR Code."
-                    data-ar="بطاقات زيارة رقمية مع رمز QR."
-                    data-en="Digital business cards with QR Code.">
 
-                    Cartes de visite digitales avec QR Code.
+                <p
+                    data-fr="Création de boutiques en ligne"
+                    data-ar="إنشاء متاجر إلكترونية"
+                    data-en="Online store creation">
+
+                    Création de boutiques en ligne
 
                 </p>
 
             </div>
 
-
-            <!-- SERVICE 3 -->
 
             <div class="service">
 
@@ -1522,51 +1472,41 @@ h1 {
                         stroke="currentColor"
                         stroke-width="2">
 
-                        <path
-                            d="M12 3v18"/>
+                        <rect
+                            x="4"
+                            y="5"
+                            width="16"
+                            height="14"/>
 
                         <path
-                            d="M5 7h14"/>
-
-                        <path
-                            d="M5 17h14"/>
-
-                        <circle
-                            cx="12"
-                            cy="7"
-                            r="2"/>
-
-                        <circle
-                            cx="12"
-                            cy="17"
-                            r="2"/>
+                            d="m8 15 2-2 2 2 3-4 2 3"/>
 
                     </svg>
 
                 </div>
 
-                <h3
-                    data-fr="Solutions digitales"
-                    data-ar="الحلول الرقمية"
-                    data-en="Digital solutions">
 
-                    Solutions digitales
+                <h3
+                    data-fr="Design digital"
+                    data-ar="التصميم الرقمي"
+                    data-en="Digital design">
+
+                    Design digital
 
                 </h3>
 
-                <p
-                    data-fr="Solutions adaptées aux besoins des projets."
-                    data-ar="حلول مناسبة لاحتياجات المشاريع."
-                    data-en="Solutions adapted to project needs.">
 
-                    Solutions adaptées aux besoins des projets.
+                <p
+                    data-fr="Interfaces et expériences digitales"
+                    data-ar="واجهات وتجارب رقمية"
+                    data-en="Digital interfaces and experiences">
+
+                    Interfaces et expériences digitales
 
                 </p>
 
             </div>
 
-
-            <!-- SERVICE 4 -->
 
             <div class="service">
 
@@ -1581,33 +1521,35 @@ h1 {
                         <circle
                             cx="12"
                             cy="12"
-                            r="9"/>
+                            r="8"/>
 
                         <path
-                            d="M3 12h18"/>
+                            d="M12 8v8"/>
 
                         <path
-                            d="M12 3c3 3 3 15 0 18"/>
+                            d="M8 12h8"/>
 
                     </svg>
 
                 </div>
 
-                <h3
-                    data-fr="Présence en ligne"
-                    data-ar="الحضور الرقمي"
-                    data-en="Online presence">
 
-                    Présence en ligne
+                <h3
+                    data-fr="Produits numériques"
+                    data-ar="المنتجات الرقمية"
+                    data-en="Digital products">
+
+                    Produits numériques
 
                 </h3>
 
-                <p
-                    data-fr="Création d'une présence digitale professionnelle."
-                    data-ar="إنشاء حضور رقمي احترافي."
-                    data-en="Building a professional digital presence.">
 
-                    Création d'une présence digitale professionnelle.
+                <p
+                    data-fr="Création de projets digitaux"
+                    data-ar="إنشاء مشاريع رقمية"
+                    data-en="Digital project creation">
+
+                    Création de projets digitaux
 
                 </p>
 
@@ -1615,14 +1557,12 @@ h1 {
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- =========================
-         PROJECTS
-    ========================= -->
+    <!-- PROJECTS -->
 
-    <div class="section">
+    <section class="section">
 
         <div class="section-title">
 
@@ -1638,11 +1578,10 @@ h1 {
         </div>
 
 
-        <!-- PROJECT 1 -->
-
         <div class="project">
 
             <div class="project-top">
+
 
                 <div class="project-icon">
 
@@ -1653,17 +1592,18 @@ h1 {
                         stroke-width="2">
 
                         <path
-                            d="M3 5h18v14H3z"/>
+                            d="M4 5h16v14H4z"/>
 
                         <path
-                            d="M7 9h10"/>
+                            d="M8 9h8"/>
 
                         <path
-                            d="M7 13h6"/>
+                            d="M8 13h5"/>
 
                     </svg>
 
                 </div>
+
 
                 <div>
 
@@ -1671,12 +1611,13 @@ h1 {
                         Top Market
                     </h3>
 
-                    <p
-                        data-fr="Projet e-commerce professionnel."
-                        data-ar="مشروع تجارة إلكترونية احترافي."
-                        data-en="Professional e-commerce project.">
 
-                        Projet e-commerce professionnel.
+                    <p
+                        data-fr="Projet e-commerce et solution digitale."
+                        data-ar="مشروع للتجارة الإلكترونية وحلول رقمية."
+                        data-en="E-commerce project and digital solution.">
+
+                        Projet e-commerce et solution digitale.
 
                     </p>
 
@@ -1687,11 +1628,10 @@ h1 {
         </div>
 
 
-        <!-- PROJECT 2 -->
-
         <div class="project">
 
             <div class="project-top">
+
 
                 <div class="project-icon">
 
@@ -1721,6 +1661,7 @@ h1 {
 
                 </div>
 
+
                 <div>
 
                     <h3
@@ -1732,12 +1673,13 @@ h1 {
 
                     </h3>
 
-                    <p
-                        data-fr="Carte professionnelle accessible partout."
-                        data-ar="بطاقة مهنية يمكن الوصول إليها من أي مكان."
-                        data-en="Professional card accessible everywhere.">
 
-                        Carte professionnelle accessible partout.
+                    <p
+                        data-fr="Une identité digitale simple et professionnelle."
+                        data-ar="هوية رقمية بسيطة واحترافية."
+                        data-en="A simple and professional digital identity.">
+
+                        Une identité digitale simple et professionnelle.
 
                     </p>
 
@@ -1747,18 +1689,21 @@ h1 {
 
         </div>
 
-    </div>
-        <!-- =========================
-         STATS
-    ========================= -->
+    </section>
 
-    <div class="section">
+
+    <!-- STATS -->
+
+    <section class="section">
 
         <div class="stats">
 
+
             <div class="stat">
 
-                <strong>100%</strong>
+                <strong>
+                    100%
+                </strong>
 
                 <span
                     data-fr="Digital"
@@ -1774,7 +1719,9 @@ h1 {
 
             <div class="stat">
 
-                <strong>24/7</strong>
+                <strong>
+                    24/7
+                </strong>
 
                 <span
                     data-fr="Disponible"
@@ -1790,7 +1737,9 @@ h1 {
 
             <div class="stat">
 
-                <strong>3</strong>
+                <strong>
+                    3
+                </strong>
 
                 <span
                     data-fr="Langues"
@@ -1805,23 +1754,21 @@ h1 {
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- =========================
-         QR CODE
-    ========================= -->
+    <!-- QR CODE -->
 
-    <div class="section">
+    <section class="section">
 
         <div class="section-title">
 
             <span
-                data-fr="Ma carte digitale"
-                data-ar="بطاقتي الرقمية"
-                data-en="My digital card">
+                data-fr="Ma carte"
+                data-ar="بطاقتي"
+                data-en="My card">
 
-                Ma carte digitale
+                Ma carte
 
             </span>
 
@@ -1834,31 +1781,28 @@ h1 {
                 id="qrCode"
                 alt="QR Code">
 
-            <p
+            <div
                 class="qr-text"
-                data-fr="Scannez le QR Code pour partager ma carte."
-                data-ar="امسح رمز QR لمشاركة بطاقتي."
-                data-en="Scan the QR Code to share my card.">
+                data-fr="Scannez pour ouvrir ma carte digitale"
+                data-ar="امسح الرمز لفتح بطاقتي الرقمية"
+                data-en="Scan to open my digital card">
 
-                Scannez le QR Code pour partager ma carte.
+                Scannez pour ouvrir ma carte digitale
 
-            </p>
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <!-- FOOTER -->
 
-    <footer>
+    <div class="footer">
 
         © 2026 Mohamed Sakhi · TOP MARKET
 
-    </footer>
-
+    </div>
 
 </div>
 
@@ -1866,7 +1810,7 @@ h1 {
 <script>
 
 /* =========================
-   LANGUAGE SYSTEM
+   INTERNAL LANGUAGE SYSTEM
 ========================= */
 
 function changeLanguage(lang, button) {
@@ -1959,7 +1903,7 @@ END:VCARD`;
 
 
 /* =========================
-   SHARE CARD
+   SHARE
 ========================= */
 
 async function shareCard() {
@@ -2022,123 +1966,23 @@ async function shareCard() {
 ========================= */
 
 function createQRCode() {
-
-    document.getElementById("qrCode").src =
-        "./qr-code.png";
-
+    document.getElementById("qrCode").src = "./qr-code.png";
 }
 
 createQRCode();
-
-
+</script>
+<!-- =========================
+     OFFLINE MODE
+========================= -->
+<script>
 /* =========================
    INSTALL APP
 ========================= */
 
-let deferredPrompt = null;
+let deferredPrompt;
 
 const installBtn =
     document.getElementById("installBtn");
-
-
-/* =========================
-   CHECK IF APP IS INSTALLED
-========================= */
-
-function isAppInstalled() {
-
-    return (
-
-        window.matchMedia(
-            "(display-mode: standalone)"
-        ).matches
-
-        ||
-
-        window.navigator.standalone === true
-
-    );
-
-}
-
-
-/* =========================
-   DETECT IOS
-========================= */
-
-function isIOS() {
-
-    return /iphone|ipad|ipod/i.test(
-        window.navigator.userAgent
-    );
-
-}
-
-
-/* =========================
-   DETECT IOS SAFARI
-========================= */
-
-function isIOSSafari() {
-
-    const userAgent =
-        window.navigator.userAgent;
-
-    return (
-
-        isIOS()
-
-        &&
-
-        /safari/i.test(userAgent)
-
-        &&
-
-        !/crios|fxios|edgios/i.test(userAgent)
-
-    );
-
-}
-
-
-/* =========================
-   SHOW INSTALL BUTTON
-========================= */
-
-function showInstallButton() {
-
-    if (
-        installBtn &&
-        !isAppInstalled()
-    ) {
-
-        installBtn.style.display =
-            "flex";
-
-    }
-
-}
-
-
-/* =========================
-   HIDE INSTALL BUTTON
-========================= */
-
-function hideInstallButton() {
-
-    if (installBtn) {
-
-        installBtn.style.display =
-            "none";
-
-    }
-
-}
-
-
-/* =========================
-   ANDROID / CHROME
-========================= */
 
 window.addEventListener(
     "beforeinstallprompt",
@@ -2148,13 +1992,12 @@ window.addEventListener(
 
         deferredPrompt = event;
 
-        showInstallButton();
+        if (installBtn) {
+            installBtn.style.display = "flex";
+        }
 
     }
 );
-      /* =========================
-   INSTALL BUTTON
-========================= */
 
 if (installBtn) {
 
@@ -2162,147 +2005,50 @@ if (installBtn) {
         "click",
         async function() {
 
-
-            /* =====================
-               NATIVE INSTALL
-            ===================== */
-
-            if (deferredPrompt) {
-
-                deferredPrompt.prompt();
-
-                try {
-
-                    await deferredPrompt.userChoice;
-
-                }
-
-                catch (error) {
-
-                    console.log(
-                        "Install prompt error:",
-                        error
-                    );
-
-                }
-
-                deferredPrompt = null;
-
-                hideInstallButton();
-
+            if (!deferredPrompt) {
                 return;
-
             }
 
+            deferredPrompt.prompt();
 
-            /* =====================
-               IPHONE / IPAD
-            ===================== */
+            const result =
+                await deferredPrompt.userChoice;
 
-            if (
-                isIOS() &&
-                !isAppInstalled()
-            ) {
+            deferredPrompt = null;
 
-                if (isIOSSafari()) {
-
-                    alert(
-
-                        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
-
-                        "1. اضغط على زر المشاركة ⬆️ في Safari.\n\n" +
-
-                        "2. مرّر إلى الأسفل واختر «إضافة إلى الشاشة الرئيسية».\n\n" +
-
-                        "3. اضغط «إضافة»."
-
-                    );
-
-                }
-
-                else {
-
-                    alert(
-
-                        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
-
-                        "افتح هذه البطاقة في Safari، ثم اضغط على زر المشاركة ⬆️ واختر «إضافة إلى الشاشة الرئيسية»."
-
-                    );
-
-                }
-
-                return;
-
-            }
-
-
-            /* =====================
-               OTHER BROWSERS
-            ===================== */
-
-            alert(
-
-                "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
-
-            );
+            installBtn.style.display = "none";
 
         }
     );
 
 }
 
-
-/* =========================
-   APP INSTALLED EVENT
-========================= */
-
 window.addEventListener(
     "appinstalled",
     function() {
 
-        deferredPrompt = null;
-
-        hideInstallButton();
+        if (installBtn) {
+            installBtn.style.display = "none";
+        }
 
     }
 );
 
+/* إخفاء الزر إذا كانت البطاقة مفتوحة كتطبيق مثبت */
+if (
+    window.matchMedia(
+        "(display-mode: standalone)"
+    ).matches ||
+    window.navigator.standalone === true
+) {
 
-/* =========================
-   INITIAL INSTALL BUTTON
-========================= */
-
-if (isAppInstalled()) {
-
-    hideInstallButton();
-
-}
-
-else {
-
-    /*
-       مهم جدًا:
-
-       Safari على iPhone لا يرسل
-       beforeinstallprompt.
-
-       لذلك يجب إظهار الزر يدويًا
-       على iPhone / iPad.
-    */
-
-    if (isIOS()) {
-
-        showInstallButton();
-
+    if (installBtn) {
+        installBtn.style.display = "none";
     }
 
 }
-
-
-/* =========================
-   SERVICE WORKER
-========================= */
+</script>
+<script>
 
 if ("serviceWorker" in navigator) {
 
@@ -2311,10 +2057,7 @@ if ("serviceWorker" in navigator) {
         function () {
 
             navigator.serviceWorker
-
-                .register(
-                    "./service-worker.js"
-                )
+                .register("./service-worker.js")
 
                 .then(function (registration) {
 
@@ -2322,13 +2065,6 @@ if ("serviceWorker" in navigator) {
                         "Offline mode activated:",
                         registration.scope
                     );
-
-                    /*
-                       طلب تحديث Service Worker
-                       عند فتح البطاقة.
-                    */
-
-                    registration.update();
 
                 })
 
