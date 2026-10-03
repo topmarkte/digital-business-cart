@@ -2064,7 +2064,310 @@ if ("serviceWorker" in navigator) {
                     console.log(
                         "Offline mode activated:",
                         registration.scope
+<!-- =========================
+     OFFLINE MODE
+========================= -->
+
+<script>
+
+/* =========================
+   INSTALL APP
+========================= */
+
+let deferredPrompt = null;
+
+const installBtn =
+    document.getElementById("installBtn");
+
+
+/* =========================
+   CHECK IF APP IS INSTALLED
+========================= */
+
+function isAppInstalled() {
+
+    return (
+
+        window.matchMedia(
+            "(display-mode: standalone)"
+        ).matches
+
+        ||
+
+        window.navigator.standalone === true
+
+    );
+
+}
+
+
+/* =========================
+   DETECT IOS
+========================= */
+
+function isIOS() {
+
+    return /iphone|ipad|ipod/i.test(
+        window.navigator.userAgent
+    );
+
+}
+
+
+/* =========================
+   DETECT IOS SAFARI
+========================= */
+
+function isIOSSafari() {
+
+    const userAgent =
+        window.navigator.userAgent;
+
+    return (
+
+        isIOS()
+
+        &&
+
+        /safari/i.test(userAgent)
+
+        &&
+
+        !/crios|fxios|edgios/i.test(userAgent)
+
+    );
+
+}
+
+
+/* =========================
+   SHOW INSTALL BUTTON
+========================= */
+
+function showInstallButton() {
+
+    if (
+        installBtn &&
+        !isAppInstalled()
+    ) {
+
+        installBtn.style.display =
+            "flex";
+
+    }
+
+}
+
+
+/* =========================
+   HIDE INSTALL BUTTON
+========================= */
+
+function hideInstallButton() {
+
+    if (installBtn) {
+
+        installBtn.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================
+   ANDROID / CHROME
+========================= */
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function(event) {
+
+        event.preventDefault();
+
+        deferredPrompt = event;
+
+        showInstallButton();
+
+    }
+);
+
+
+/* =========================
+   INSTALL BUTTON
+========================= */
+
+if (installBtn) {
+
+    installBtn.addEventListener(
+        "click",
+        async function() {
+
+
+            /* =====================
+               NATIVE INSTALL
+            ===================== */
+
+            if (deferredPrompt) {
+
+                deferredPrompt.prompt();
+
+                try {
+
+                    await deferredPrompt.userChoice;
+
+                }
+
+                catch (error) {
+
+                    console.log(
+                        "Install prompt error:",
+                        error
                     );
+
+                }
+
+                deferredPrompt = null;
+
+                hideInstallButton();
+
+                return;
+
+            }
+
+
+            /* =====================
+               IPHONE / IPAD
+            ===================== */
+
+            if (
+                isIOS() &&
+                !isAppInstalled()
+            ) {
+
+                if (isIOSSafari()) {
+
+                    alert(
+
+                        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
+
+                        "1. اضغط على زر المشاركة ⬆️ في Safari.\n\n" +
+
+                        "2. مرّر إلى الأسفل واختر «إضافة إلى الشاشة الرئيسية».\n\n" +
+
+                        "3. اضغط «إضافة»."
+
+                    );
+
+                }
+
+                else {
+
+                    alert(
+
+                        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
+
+                        "افتح هذه البطاقة في Safari، ثم اضغط على زر المشاركة ⬆️ واختر «إضافة إلى الشاشة الرئيسية»."
+
+                    );
+
+                }
+
+                return;
+
+            }
+
+
+            /* =====================
+               OTHER BROWSERS
+            ===================== */
+
+            alert(
+
+                "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
+
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================
+   APP INSTALLED EVENT
+========================= */
+
+window.addEventListener(
+    "appinstalled",
+    function() {
+
+        deferredPrompt = null;
+
+        hideInstallButton();
+
+    }
+);
+
+
+/* =========================
+   INITIAL INSTALL BUTTON
+========================= */
+
+if (isAppInstalled()) {
+
+    hideInstallButton();
+
+}
+
+else {
+
+    /*
+       Safari على iPhone لا يرسل
+       beforeinstallprompt.
+
+       لذلك نظهر الزر يدويًا
+       على iPhone / iPad.
+    */
+
+    if (isIOS()) {
+
+        showInstallButton();
+
+    }
+
+}
+
+
+/* =========================
+   SERVICE WORKER
+========================= */
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            navigator.serviceWorker
+
+                .register(
+                    "./service-worker.js"
+                )
+
+                .then(function (registration) {
+
+                    console.log(
+                        "Offline mode activated:",
+                        registration.scope
+                    );
+
+                    /*
+                       طلب تحديث Service Worker
+                       عند فتح البطاقة.
+                    */
+
+                    registration.update();
 
                 })
 
@@ -2083,8 +2386,7 @@ if ("serviceWorker" in navigator) {
 }
 
 </script>
-
-
+      
 </body>
 
 </html>
