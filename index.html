@@ -2356,16 +2356,27 @@ if ("serviceWorker" in navigator) {
                 )
 
                 .then(function (registration) {
+console.log(
+    "Offline mode activated:",
+    registration.scope
+);
+                     <script>
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener(
+        "load",
+        function () {
+
+            navigator.serviceWorker
+                .register("./service-worker.js")
+
+                .then(function (registration) {
 
                     console.log(
                         "Offline mode activated:",
                         registration.scope
                     );
-
-                    /*
-                       طلب تحديث Service Worker
-                       عند فتح البطاقة.
-                    */
 
                     registration.update();
 
@@ -2386,7 +2397,8 @@ if ("serviceWorker" in navigator) {
 }
 
 </script>
-      
+
 </body>
 
-</html>
+</html> 
+                    
