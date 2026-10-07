@@ -1971,108 +1971,7 @@ function createQRCode() {
 
 createQRCode();
 </script>
-<!-- =========================
-     OFFLINE MODE
-========================= -->
 <script>
-/* =========================
-   INSTALL APP
-========================= */
-
-let deferredPrompt;
-
-const installBtn =
-    document.getElementById("installBtn");
-
-window.addEventListener(
-    "beforeinstallprompt",
-    function(event) {
-
-        event.preventDefault();
-
-        deferredPrompt = event;
-
-        if (installBtn) {
-            installBtn.style.display = "flex";
-        }
-
-    }
-);
-
-if (installBtn) {
-
-    installBtn.addEventListener(
-        "click",
-        async function() {
-
-            if (!deferredPrompt) {
-                return;
-            }
-
-            deferredPrompt.prompt();
-
-            const result =
-                await deferredPrompt.userChoice;
-
-            deferredPrompt = null;
-
-            installBtn.style.display = "none";
-
-        }
-    );
-
-}
-
-window.addEventListener(
-    "appinstalled",
-    function() {
-
-        if (installBtn) {
-            installBtn.style.display = "none";
-        }
-
-    }
-);
-
-/* إخفاء الزر إذا كانت البطاقة مفتوحة كتطبيق مثبت */
-if (
-    window.matchMedia(
-        "(display-mode: standalone)"
-    ).matches ||
-    window.navigator.standalone === true
-) {
-
-    if (installBtn) {
-        installBtn.style.display = "none";
-    }
-
-}
-</script>
-<script>
-
-if ("serviceWorker" in navigator) {
-
-    window.addEventListener(
-        "load",
-        function () {
-
-            navigator.serviceWorker
-                .register("./service-worker.js")
-
-                .then(function (registration) {
-
-                    console.log(
-                        "Offline mode activated:",
-                        registration.scope
-<!-- =========================
-     OFFLINE MODE
-========================= -->
-
-<script>
-
-/* =========================
-   INSTALL APP
-========================= */
 
 let deferredPrompt = null;
 
@@ -2080,30 +1979,15 @@ const installBtn =
     document.getElementById("installBtn");
 
 
-/* =========================
-   CHECK IF APP IS INSTALLED
-========================= */
-
 function isAppInstalled() {
 
     return (
-
-        window.matchMedia(
-            "(display-mode: standalone)"
-        ).matches
-
-        ||
-
+        window.matchMedia("(display-mode: standalone)").matches ||
         window.navigator.standalone === true
-
     );
 
 }
 
-
-/* =========================
-   DETECT IOS
-========================= */
 
 function isIOS() {
 
@@ -2114,70 +1998,37 @@ function isIOS() {
 }
 
 
-/* =========================
-   DETECT IOS SAFARI
-========================= */
-
 function isIOSSafari() {
 
     const userAgent =
         window.navigator.userAgent;
 
     return (
-
-        isIOS()
-
-        &&
-
-        /safari/i.test(userAgent)
-
-        &&
-
+        isIOS() &&
+        /safari/i.test(userAgent) &&
         !/crios|fxios|edgios/i.test(userAgent)
-
     );
 
 }
 
 
-/* =========================
-   SHOW INSTALL BUTTON
-========================= */
-
 function showInstallButton() {
 
-    if (
-        installBtn &&
-        !isAppInstalled()
-    ) {
-
-        installBtn.style.display =
-            "flex";
-
+    if (installBtn && !isAppInstalled()) {
+        installBtn.style.display = "flex";
     }
 
 }
 
-
-/* =========================
-   HIDE INSTALL BUTTON
-========================= */
 
 function hideInstallButton() {
 
     if (installBtn) {
-
-        installBtn.style.display =
-            "none";
-
+        installBtn.style.display = "none";
     }
 
 }
 
-
-/* =========================
-   ANDROID / CHROME
-========================= */
 
 window.addEventListener(
     "beforeinstallprompt",
@@ -2193,38 +2044,23 @@ window.addEventListener(
 );
 
 
-/* =========================
-   INSTALL BUTTON
-========================= */
-
 if (installBtn) {
 
     installBtn.addEventListener(
         "click",
         async function() {
 
-
-            /* =====================
-               NATIVE INSTALL
-            ===================== */
-
             if (deferredPrompt) {
 
                 deferredPrompt.prompt();
 
                 try {
-
                     await deferredPrompt.userChoice;
-
-                }
-
-                catch (error) {
-
+                } catch (error) {
                     console.log(
                         "Install prompt error:",
                         error
                     );
-
                 }
 
                 deferredPrompt = null;
@@ -2232,60 +2068,34 @@ if (installBtn) {
                 hideInstallButton();
 
                 return;
-
             }
 
 
-            /* =====================
-               IPHONE / IPAD
-            ===================== */
-
-            if (
-                isIOS() &&
-                !isAppInstalled()
-            ) {
+            if (isIOS() && !isAppInstalled()) {
 
                 if (isIOSSafari()) {
 
                     alert(
-
                         "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
-
                         "1. اضغط على زر المشاركة ⬆️ في Safari.\n\n" +
-
                         "2. مرّر إلى الأسفل واختر «إضافة إلى الشاشة الرئيسية».\n\n" +
-
                         "3. اضغط «إضافة»."
-
                     );
 
-                }
-
-                else {
+                } else {
 
                     alert(
-
-                        "لإضافة البطاقة إلى الشاشة الرئيسية:\n\n" +
-
-                        "افتح هذه البطاقة في Safari، ثم اضغط على زر المشاركة ⬆️ واختر «إضافة إلى الشاشة الرئيسية»."
-
+                        "افتح البطاقة في Safari، ثم اضغط على زر المشاركة ⬆️ واختر «إضافة إلى الشاشة الرئيسية»."
                     );
 
                 }
 
                 return;
-
             }
 
 
-            /* =====================
-               OTHER BROWSERS
-            ===================== */
-
             alert(
-
                 "يمكنك إضافة البطاقة إلى الشاشة الرئيسية من قائمة المتصفح."
-
             );
 
         }
@@ -2293,10 +2103,6 @@ if (installBtn) {
 
 }
 
-
-/* =========================
-   APP INSTALLED EVENT
-========================= */
 
 window.addEventListener(
     "appinstalled",
@@ -2310,68 +2116,26 @@ window.addEventListener(
 );
 
 
-/* =========================
-   INITIAL INSTALL BUTTON
-========================= */
-
 if (isAppInstalled()) {
 
     hideInstallButton();
 
-}
+} else if (isIOS()) {
 
-else {
-
-    /*
-       Safari على iPhone لا يرسل
-       beforeinstallprompt.
-
-       لذلك نظهر الزر يدويًا
-       على iPhone / iPad.
-    */
-
-    if (isIOS()) {
-
-        showInstallButton();
-
-    }
+    showInstallButton();
 
 }
 
-
-/* =========================
-   SERVICE WORKER
-========================= */
 
 if ("serviceWorker" in navigator) {
 
     window.addEventListener(
         "load",
-        function () {
-
-            navigator.serviceWorker
-
-                .register(
-                    "./service-worker.js"
-                )
-
-                .then(function (registration) {
-console.log(
-    "Offline mode activated:",
-    registration.scope
-);
-                     <script>
-
-if ("serviceWorker" in navigator) {
-
-    window.addEventListener(
-        "load",
-        function () {
+        function() {
 
             navigator.serviceWorker
                 .register("./service-worker.js")
-
-                .then(function (registration) {
+                .then(function(registration) {
 
                     console.log(
                         "Offline mode activated:",
@@ -2381,8 +2145,7 @@ if ("serviceWorker" in navigator) {
                     registration.update();
 
                 })
-
-                .catch(function (error) {
+                .catch(function(error) {
 
                     console.log(
                         "Service Worker error:",
@@ -2400,5 +2163,4 @@ if ("serviceWorker" in navigator) {
 
 </body>
 
-</html> 
-                    
+</html>
