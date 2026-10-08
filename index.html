@@ -2122,9 +2122,16 @@ if (isAppInstalled()) {
 
 } else if (isIOS()) {
 
-    showInstallButton();
+    // iPhone: لا نعرض زر إضافة إلى الشاشة الرئيسية
+    hideInstallButton();
 
 }
+
+    
+
+    
+
+
 
 
 if ("serviceWorker" in navigator) {
